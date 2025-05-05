@@ -46,7 +46,7 @@ const circularMotionRouter = express.Router();
  *                   type: number
  *                   description: Centripetal acceleration (a_c) (e.g., m/s^2)
  *                   example: 20
- *                 formula:
+ *                 equation:
  *                   type: string
  *                   example: "a_c = v^2 / r"
  *       400:
@@ -109,7 +109,7 @@ circularMotionRouter.post(
  *                   type: number
  *                   description: Centripetal acceleration (a_c) (e.g., m/s^2). Negative indicates towards center.
  *                   example: -20
- *                 formula:
+ *                 equation:
  *                   type: string
  *                   example: "a_c = -ω^2 * r"
  *       400:

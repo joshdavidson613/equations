@@ -287,7 +287,7 @@ opticsRouter.post("/critical-angle", handleCalculationRequest(opticsController.c
  * @swagger
  * /physics/image-location:
  *   post:
- *     summary: Validates thin lens/mirror formula (1/f = 1/do + 1/di)
+ *     summary: Validates thin lens/mirror equation (1/f = 1/do + 1/di)
  *     description: Checks if the relationship between focal length, object distance, and image distance holds true. Returns boolean. Note- Uses strict equality (===) which may be sensitive to floating-point precision; consider tolerance for real-world checks.
  *     tags:
  *          - Physics - Optics
@@ -325,7 +325,7 @@ opticsRouter.post("/critical-angle", handleCalculationRequest(opticsController.c
  *               properties:
  *                 result:
  *                   type: boolean
- *                   description: True if the lens/mirror formula holds.
+ *                   description: True if the lens/mirror equation holds.
  *       400:
  *         description: Invalid input (e.g., non-finite numbers, any of the inputs is zero).
  *         content:
@@ -343,8 +343,8 @@ opticsRouter.post("/image-location", handleCalculationRequest(opticsController.c
  * @swagger
  * /physics/image-size:
  *   post:
- *     summary: Validates magnification formula (h'/h = -di/do) (Function uses h'/h = di/do)
- *     description: Checks if the relationship between object/image heights and distances holds true. Returns boolean. Note- Uses strict equality (===) which may be sensitive to floating-point precision. The function uses the magnitude relationship `h'/h = di/do` rather than the signed magnification formula. Documenting based on function implementation. Consider tolerance for real-world checks.
+ *     summary: Validates magnification equation (h'/h = -di/do) (Function uses h'/h = di/do)
+ *     description: Checks if the relationship between object/image heights and distances holds true. Returns boolean. Note- Uses strict equality (===) which may be sensitive to floating-point precision. The function uses the magnitude relationship `h'/h = di/do` rather than the signed magnification equation. Documenting based on function implementation. Consider tolerance for real-world checks.
  *     tags:
  *          - Physics - Optics
  *     requestBody:

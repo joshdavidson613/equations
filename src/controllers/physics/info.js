@@ -8,10 +8,10 @@ const dbUtils = require("../../utils/dbUtils.js");
 
 /**
  * @swagger
- * /physics/{formula_id}/{language_code}:
+ * /physics/{equation_id}/{language_code}:
  *   get:
- *     summary: Get formula information by ID and language
- *     description: Retrieves details for a specific formula based on its unique ID and the desired language.
+ *     summary: Get equation information by ID and language
+ *     description: Retrieves details for a specific equation based on its unique ID and the desired language.
  *                  Note - The language is extracted from the 'language_code' path parameter. The internal logic shown
  *                  in the code snippet also looks at a 'lang' query parameter, but this Swagger definition
  *                  documents the primary path parameters.
@@ -19,11 +19,11 @@ const dbUtils = require("../../utils/dbUtils.js");
  *       - Physics - Information
  *     parameters:
  *       - in: path
- *         name: formula_id
+ *         name: equation_id
  *         schema:
  *           type: string
  *         required: true
- *         description: The unique identifier of the formula (e.g., 'centripetal-acceleration') which is the endpoint 
+ *         description: The unique identifier of the equation (e.g., 'centripetal-acceleration') which is the endpoint 
  *                      of the post request to generate a calculation.
  *                       
  *         example: centripetal-acceleration
@@ -51,10 +51,10 @@ const dbUtils = require("../../utils/dbUtils.js");
  *             - ur
  *           # ================================================
  *         required: true
- *         description: The language code for the formula details. Select from the supported list.
+ *         description: The language code for the equation details. Select from the supported list.
  *     responses:
  *       200:
- *         description: Successful response with formula details.
+ *         description: Successful response with equation details.
  *         content:
  *           application/json:
  *             schema:
@@ -62,20 +62,20 @@ const dbUtils = require("../../utils/dbUtils.js");
  *               properties:
  *                 subject:
  *                   type: string
- *                   description: The subject the formula belongs to.
- *                 formula_id:
+ *                   description: The subject the equation belongs to.
+ *                 equation_id:
  *                   type: string
- *                   description: The ID of the formula.
+ *                   description: The ID of the equation.
  *                 language_code:
  *                   type: string
  *                   description: The language code of the returned details (Note - Code uses 'lang' query param or defaults 'en').
  *               # Example of a successful response body (assuming the internal 'body' object structure)
  *               example:
  *                 subject: Physics
- *                 formula_id: centripetal-acceleration
+ *                 equation_id: centripetal-acceleration
  *                 language_code: en # Or 'es', 'fr' etc. based on request/logic
  *       400:
- *         description: Bad Request - Formula ID is missing or invalid.
+ *         description: Bad Request - Equation ID is missing or invalid.
  *         content:
  *           application/json:
  *             schema:
@@ -85,24 +85,25 @@ const dbUtils = require("../../utils/dbUtils.js");
  *                   type: string
  *                   description: Description of the error.
  *               example:
- *                 error: Formula ID is required.
+ *                 error: Equation ID is required.
  *       # Add other potential responses like 404 Not Found if you implement that logic
- */infoRouter.get("/:formula_id/:language_code", async (req, res) => {
-    const formula_id = req.params.formula_id;
+ */infoRouter.get("/:equation_id/:language_code", async (req, res) => {
+    const equation_id = req.params.equation_id;
     const language_code = req.params.language_code || "en"; // Default to English if not provided
   
-    if(!formula_id){
-        return sendRes(res, 400, { error: "Formula ID is required." });
+    if(!equation_id){
+        return sendRes(res, 400, { error: "Equation ID is required." });
     }
     const body = {
       subject: "Physics",
-      formula_id: formula_id,
+      equation_id: equation_id,
       language_code: language_code || "en", // Default to English
    };
    req.body = body; // Set the request body to the properties object
-   const fields =['name', 'formula_id', 'language_code', 'formula_text', 'variables', 'description', 'subject', 'topic'];
+   const fields =['name', 'equation_id', 'language_code', 'equation_text', 'variables', 'description', 'subject', 'topic'];
    await dbUtils.getByProperties(req, res, "explanations",fields ); //search properties are stuffed into req.body;
 
 
 });
+
 module.exports = infoRouter;

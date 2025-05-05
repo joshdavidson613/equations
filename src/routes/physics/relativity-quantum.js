@@ -192,7 +192,7 @@ relativityQuantumRouter.post(
  * /physics/relativistic-velocity:
  *   post:
  *     summary: Calculates relativistic velocity addition
- *     description: Calculates the velocity (u') of an object relative to a frame S', given its velocity (u) relative to a frame S, and the velocity (v) of frame S relative to frame S'. Uses the formula u' = (u + v) / (1 + uv/c²). Assumes motion along the same line. Requires c ≠ 0. Units of u, v, and c must be consistent.
+ *     description: Calculates the velocity (u') of an object relative to a frame S', given its velocity (u) relative to a frame S, and the velocity (v) of frame S relative to frame S'. Uses the equation u' = (u + v) / (1 + uv/c²). Assumes motion along the same line. Requires c ≠ 0. Units of u, v, and c must be consistent.
  *     tags:
  *       - Physics - Relativity and Quantum
  *     requestBody:
@@ -256,7 +256,7 @@ relativityQuantumRouter.post(
  *   post:
  *     summary: Calculates relativistic total energy (E)
  *     description: Calculates the total relativistic energy of a particle with rest mass (m) moving at velocity (v).
- *       Uses the formula E = γmc² = mc² / √(1 - (v²/c²)). Primarily for particles with rest mass (m > 0).
+ *       Uses the equation E = γmc² = mc² / √(1 - (v²/c²)). Primarily for particles with rest mass (m > 0).
  *       Requires m ≥ 0 and |v| ≤ c. Units of m, v, and c must be consistent to yield energy in appropriate units (e.g., m in kg, v/c in m/s gives E in Joules).
  *     tags:
  *       - Physics - Relativity and Quantum
@@ -320,7 +320,7 @@ relativityQuantumRouter.post(
  * /physics/relativistic-momentum:
  *   post:
  *     summary: Calculates relativistic momentum (p = γmv)
- *     description: Calculates the relativistic momentum of a particle with rest mass (m) moving at velocity (v). Uses the formula p = γmv = mv / √(1 - (v²/c²)). Primarily for particles with rest mass (m > 0). Requires m ≥ 0 and |v| ≤ c. Units of m, v, and c must be consistent to yield momentum in appropriate units (e.g., m in kg, v in m/s, c in m/s gives p in kg·m/s).
+ *     description: Calculates the relativistic momentum of a particle with rest mass (m) moving at velocity (v). Uses the equation p = γmv = mv / √(1 - (v²/c²)). Primarily for particles with rest mass (m > 0). Requires m ≥ 0 and |v| ≤ c. Units of m, v, and c must be consistent to yield momentum in appropriate units (e.g., m in kg, v in m/s, c in m/s gives p in kg·m/s).
  *     tags:
  *       - Physics - Relativity and Quantum
  *     requestBody:
@@ -384,7 +384,7 @@ relativityQuantumRouter.post(
  *   post:
  *     summary: Calculates total energy from momentum and rest mass (E)
  *     description:  | 
- *       Calculates the total relativistic energy of a particle from its relativistic momentum (p) and rest mass (m). Uses the energy-momentum relation: E² = (pc)² + (mc²)². This formula is valid for both massive (m > 0) and massless (m = 0) particles. Requires p ≥ 0, m ≥ 0, and c > 0. Units of p, m, and c must be consistent.
+ *       Calculates the total relativistic energy of a particle from its relativistic momentum (p) and rest mass (m). Uses the energy-momentum relation: E² = (pc)² + (mc²)². This equation is valid for both massive (m > 0) and massless (m = 0) particles. Requires p ≥ 0, m ≥ 0, and c > 0. Units of p, m, and c must be consistent.
  *     tags:
  *       - Physics - Relativity and Quantum
  *     requestBody:
@@ -506,7 +506,7 @@ relativityQuantumRouter.post(
  * /physics/relativistic-kinetic-energy:
  *   post:
  *     summary: Calculates relativistic kinetic energy (KE)
- *     description: Calculates the relativistic kinetic energy of a particle with rest mass (m) moving at velocity (v). Uses the formula KE = (γ - 1)mc² = (1/√(1 - (v²/c²)) - 1)mc². Primarily for particles with rest mass (m > 0). Requires m ≥ 0 and |v| < c. Units of m, v, and c must be consistent to yield energy in appropriate units.
+ *     description: Calculates the relativistic kinetic energy of a particle with rest mass (m) moving at velocity (v). Uses the equation KE = (γ - 1)mc² = (1/√(1 - (v²/c²)) - 1)mc². Primarily for particles with rest mass (m > 0). Requires m ≥ 0 and |v| < c. Units of m, v, and c must be consistent to yield energy in appropriate units.
  *     tags:
  *       - Physics - Relativity and Quantum
  *     requestBody:
@@ -569,7 +569,7 @@ relativityQuantumRouter.post(
  * /physics/relativistic-doppler-effect:
  *   post:
  *     summary: Calculates relativistic longitudinal Doppler effect for wavelength
- *     description: Calculates the observed wavelength (λ') of light emitted with proper wavelength (λ₀) from a source moving with relative velocity (v_rel) directly away from or towards the observer. Uses the formula λ' = λ₀√((1 + β)/(1 - β)), where β = v_rel/c. v_rel > 0 for recession (redshift), v_rel < 0 for approach (blueshift). Requires λ₀ > 0 and |v_rel| < c. Units of λ' will be the same as λ₀, units of v_rel and c must be consistent.
+ *     description: Calculates the observed wavelength (λ') of light emitted with proper wavelength (λ₀) from a source moving with relative velocity (v_rel) directly away from or towards the observer. Uses the equation λ' = λ₀√((1 + β)/(1 - β)), where β = v_rel/c. v_rel > 0 for recession (redshift), v_rel < 0 for approach (blueshift). Requires λ₀ > 0 and |v_rel| < c. Units of λ' will be the same as λ₀, units of v_rel and c must be consistent.
  *     tags:
  *       - Physics - Relativity and Quantum
  *     requestBody:
@@ -750,7 +750,7 @@ relativityQuantumRouter.post(
  * /physics/photoelectric-effect-ke:
  *   post:
  *     summary: Calculates maximum kinetic energy in photoelectric effect (KE_max)
- *     description: Calculates the maximum kinetic energy (KE_max) of emitted electrons in the photoelectric effect. Uses the formula KE_max = E_photon - φ, where E_photon is the incoming photon energy and φ is the work function of the material. If E_photon ≤ φ, no electrons are emitted, and KE_max is 0. Requires E_photon ≥ 0 and φ ≥ 0. Units of E_photon and φ must be consistent to yield KE_max in the same units.
+ *     description: Calculates the maximum kinetic energy (KE_max) of emitted electrons in the photoelectric effect. Uses the equation KE_max = E_photon - φ, where E_photon is the incoming photon energy and φ is the work function of the material. If E_photon ≤ φ, no electrons are emitted, and KE_max is 0. Requires E_photon ≥ 0 and φ ≥ 0. Units of E_photon and φ must be consistent to yield KE_max in the same units.
  *     tags:
  *       - Physics - Relativity and Quantum
  *     requestBody:
@@ -810,7 +810,7 @@ relativityQuantumRouter.post(
  * /physics/rydberg-transition:
  *   post:
  *     summary: Calculates energy or wavenumber for hydrogen-like atom transitions
- *     description: Calculates the energy difference (ΔE) or wavenumber (1/λ) for an electron transition between two energy levels in a hydrogen-like atom (Z). Uses the formula Result = Constant * Z² * (1/n_initial² - 1/n_final²).
+ *     description: Calculates the energy difference (ΔE) or wavenumber (1/λ) for an electron transition between two energy levels in a hydrogen-like atom (Z). Uses the equation Result = Constant * Z² * (1/n_initial² - 1/n_final²).
  *       If 'Constant' is the Rydberg energy unit (e.g., in eV), the result is the energy difference E_final - E_initial (positive for absorption, negative for emission).
  *       If 'Constant' is the Rydberg constant for wavenumber (e.g., in m⁻¹), the result is the wavenumber 1/λ (positive for emission, negative for absorption).
  *       Requires nInitial > 0, nFinal > 0, nInitial ≠ nFinal, Z > 0 (integers), and Constant > 0.

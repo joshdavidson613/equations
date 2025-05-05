@@ -120,7 +120,7 @@ electromagnetismRouter.post("/electric-field", handleCalculationRequest(electroM
  * /physics/electric-potential:
  *   post:
  *     summary: Calculates electric potential from potential energy change (V = ΔU_E/q)
- *     description: Calculates the electric potential (voltage) based on the change in electric potential energy per unit charge. Note- Function name `calculateElectricPotential` is correct, but parameter `deltaUE` implies change, while the formula is typically V=U_E/q or ΔV=ΔU_E/q. Documenting based on the formula ΔV = ΔU_E/q and returning ΔV.
+ *     description: Calculates the electric potential (voltage) based on the change in electric potential energy per unit charge. Note- Function name `calculateElectricPotential` is correct, but parameter `deltaUE` implies change, while the equation is typically V=U_E/q or ΔV=ΔU_E/q. Documenting based on the equation ΔV = ΔU_E/q and returning ΔV.
  *     tags:
  *          - Physics - Electromagnetism
  *     requestBody:
@@ -448,7 +448,7 @@ electromagnetismRouter.post("/spherical-capacitor", handleCalculationRequest(ele
  * /physics/capacitive-pe:
  *   post:
  *     summary: Validates capacitor potential energy equations (PE = 0.5QV = 0.5CV^2 = 0.5Q^2/C)
- *     description: Checks if the three common formulas for potential energy stored in a capacitor are equivalent for the given Q, V, and C. Returns boolean. Note- Uses strict equality (===) which may be sensitive to floating-point precision; consider tolerance for real-world checks.
+ *     description: Checks if the three common equations for potential energy stored in a capacitor are equivalent for the given Q, V, and C. Returns boolean. Note- Uses strict equality (===) which may be sensitive to floating-point precision; consider tolerance for real-world checks.
  *     tags:
  *          - Physics - Electromagnetism
  *     requestBody:
@@ -816,7 +816,7 @@ electromagnetismRouter.post("/electric-resistance", handleCalculationRequest(ele
  * /physics/electric-power:
  *   post:
  *     summary: Validates electric power equations (P = VI = I^2R = V^2/R)
- *     description: Checks if the three common formulas for electric power are equivalent for the given V, I, and R. Returns boolean. Note- Uses strict equality (===) which may be sensitive to floating-point precision; consider tolerance for real-world checks.
+ *     description: Checks if the three common equations for electric power are equivalent for the given V, I, and R. Returns boolean. Note- Uses strict equality (===) which may be sensitive to floating-point precision; consider tolerance for real-world checks.
  *     tags:
  *          - Physics - Electromagnetism
  *     requestBody:
@@ -1192,7 +1192,7 @@ electromagnetismRouter.post("/magnetic-force-current", handleCalculationRequest(
  * /physics/biot-savart-law:
  *   post:
  *     summary: Calculates magnetic field from a current element (dB = (μ₀I ds) / (4πr^2))
- *     description: Calculates the magnitude of the magnetic field contribution from a differential current element perpendicular to the radius vector. Note- The function implements `(μ₀ * I * ds) / (4 * π * r^2)`, omitting the sin(θ) term often present in the differential form, effectively assuming θ=90 degrees or calculating only the component perpendicular to the radius vector in that specific plane. Documenting the formula implemented.
+ *     description: Calculates the magnitude of the magnetic field contribution from a differential current element perpendicular to the radius vector. Note- The function implements `(μ₀ * I * ds) / (4 * π * r^2)`, omitting the sin(θ) term often present in the differential form, effectively assuming θ=90 degrees or calculating only the component perpendicular to the radius vector in that specific plane. Documenting the equation implemented.
  *     tags:
  *          - Physics - Electromagnetism
  *     requestBody:
@@ -1644,7 +1644,7 @@ electromagnetismRouter.post("/induced-emf", handleCalculationRequest(electroMagn
  * /physics/inductance-induced-emf:
  *   post:
  *     summary: Calculates induced emf from changing current in an inductor (emf = -L * ΔI / Δt)
- *     description: Calculates the self-induced emf in an inductor due to a changing current. Note- The function is named `calculateInductance` but returns emf using this formula. Documenting what it returns.
+ *     description: Calculates the self-induced emf in an inductor due to a changing current. Note- The function is named `calculateInductance` but returns emf using this equation. Documenting what it returns.
  *     tags:
  *          - Physics - Electromagnetism
  *     requestBody:

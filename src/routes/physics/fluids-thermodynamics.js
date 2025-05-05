@@ -408,7 +408,7 @@ fluidsThermodynamicsRouter.post("/bernoulli-equation", handleCalculationRequest(
  * /physics/dynamic-viscosity:
  *   post:
  *     summary: Calculates dynamic viscosity (η = F * Δy / (A * Δvx))
- *     description: Calculates dynamic viscosity based on force, velocity gradient, and area. This formula is derived from shear stress/strain rate.
+ *     description: Calculates dynamic viscosity based on force, velocity gradient, and area. This equation is derived from shear stress/strain rate.
  *     tags:
  *          - Physics - Fluids and Thermodynamics
  *     requestBody:

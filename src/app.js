@@ -1,6 +1,6 @@
 /**
  * @module App
- * @description Main Express.js application setup for the Physics Formula API.
+ * @description Main Express.js application setup for the Physics Equation API.
  */
 
 const express = require("express");
@@ -8,10 +8,10 @@ const bodyParser = require("body-parser");
 const swaggerJSDoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
 const dotenv = require("dotenv");
+const cors = require("cors");
 
-// engineering routes
-const solidMechanicsRouter = require("./routes/engineering/solid-mechanics.js");
-const thermalThermodynamicsRouter = require("./routes/engineering/thermal-thermodynamics.js");
+const solidMechanicsRouter = require("./routes/physics/solid-mechanics.js");
+const thermalThermodynamicsRouter = require("./routes/physics/thermal-thermodynamics.js");
 // physics routes
 const infoRouter = require("./routes/physics/info.js");
 const statsRouter = require("./routes/stats/stats.js");
@@ -39,7 +39,8 @@ const port = process.env.PORT || 3000;
 
 // Middleware
 app.use(bodyParser.json()); // Parse JSON request bodies
-
+app.use(cors()); // Enable CORS for all routes
+app.use(bodyParser.urlencoded({ extended: true })); // Parse URL-encoded bodies
 // Generate Swagger spec
 const swaggerSpec = swaggerJSDoc(swaggerConfig);
 
@@ -57,17 +58,16 @@ app.get("/api-docs.json", (req, res) => {
 
 // Basic Root Route
 app.get("/", (req, res) => {
-   res.send("Physics Formula API is running. Go to /api-docs for documentation.");
+   res.send("Physics Equation API is running. Go to /api-docs for documentation.");
 });
 
-// Mount Engineering Routes
-app.use("/api/v1/engineering", solidMechanicsRouter);
-app.use("/api/v1/engineering", thermalThermodynamicsRouter);
+app.use("/api/v1/info", infoRouter); // Mount info router
 
 // Mount Physics Routes
-app.use("/api/v1/physics", infoRouter); // Mount info router
-app.use("/api/v1/stats", statsRouter); // Mount stats router
 
+app.use("/api/v1/stats", statsRouter); // Mount stats router
+app.use("/api/v1/physics", solidMechanicsRouter);
+app.use("/api/v1/physics", thermalThermodynamicsRouter);
 app.use("/api/v1/physics", mechanicsRouter);
 app.use("/api/v1/physics", momentumRouter);
 app.use("/api/v1/physics/", circularMotionRouter);
@@ -101,7 +101,7 @@ app.use((req, res, next) => {
 });
 // Start the server
 app.listen(port, () => {
-   console.log(`Physics Formula API listening at http://localhost:${port}`);
+   console.log(`Physics Equation API listening at http://localhost:${port}`);
    console.log(`API Docs available at http://localhost:${port}/api-docs`);
 });
 

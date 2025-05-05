@@ -137,14 +137,14 @@ const calculateRelativisticEnergy = ({ m, v, c = PHYSICS_CONSTANTS.C, digits = 4
 
    // Handle the case of massless particles (like photons)
    if (m === 0) {
-      // For massless particles, E = pc. This formula E=gamma*mc^2 is not directly applicable.
+      // For massless particles, E = pc. This equation E=gamma*mc^2 is not directly applicable.
       // However, Math.sqrt(1 - v*v/c*c) becomes 0 for v=c. If m=0, 0/0 is indeterminate.
       // Physically, massless particles *only* travel at c. Their energy is E=pc.
       // This function is designed for massive particles. Let's explicitly check v for massless case.
       if (Math.abs(v) !== c) {
          throw new Error("Massless particles (m=0) must travel at the speed of light (v=c).");
       }
-      // If m=0 and v=c, the E=pc formula is needed. This function can't calculate that
+      // If m=0 and v=c, the E=pc equation is needed. This function can't calculate that
       // without momentum. It's better to state this function is for massive particles.
       throw new Error(
          "This function calculateRelativisticEnergy(m, v, c) is primarily for particles with rest mass (m > 0). Use calculateEnergyMomentumRelation for massless particles (E=pc)."
@@ -190,7 +190,7 @@ const calculateRelativisticMomentum = ({ m, v, c = PHYSICS_CONSTANTS.C, digits =
       if (Math.abs(v) !== c) {
          throw new Error("Massless particles (m=0) must travel at the speed of light (v=c).");
       }
-      // If m=0 and v=c, the p=E/c formula is needed.
+      // If m=0 and v=c, the p=E/c equation is needed.
       throw new Error(
          "This function calculateRelativisticMomentum(m, v, c) is primarily for particles with rest mass (m > 0). Use calculatePhotonMomentumFromWavelength or calculateEnergyMomentumRelation for massless particles."
       );
@@ -217,7 +217,7 @@ const calculateRelativisticMomentum = ({ m, v, c = PHYSICS_CONSTANTS.C, digits =
  * Calculates the total energy (E) of an object using the energy-momentum relation.
  * E^2 = (pc)^2 + (mc^2)^2  => E = √((pc)^2 + (mc^2)^2)
  * Where p is relativistic momentum and m is rest mass.
- * This formula is valid for both massive (m>0) and massless (m=0) particles.
+ * This equation is valid for both massive (m>0) and massless (m=0) particles.
  * @param {object} params - Parameters for the calculation.
  * @param {number} params.p - Relativistic momentum. Must be non-negative (magnitude).
  * @param {number} params.m - Rest mass. Must be non-negative.
@@ -394,7 +394,7 @@ const calculatePhotoelectricEffectKE = ({ photonEnergy, phi, digits = 4 }) => {
 /**
  * Calculates the energy difference or wavenumber for an electron transition in a
  * hydrogen-like atom (an atom with only one electron, e.g., H, He+, Li++).
- * The formula used is proportional to Z^2 * (1/n_initial^2 - 1/n_final^2).
+ * The equation used is proportional to Z^2 * (1/n_initial^2 - 1/n_final^2).
  * The output type (energy or wavenumber) depends on the units of the `constant`.
  *
  * For Energy: E_final - E_initial = R_y * Z^2 * (1/n_initial^2 - 1/n_final^2)
@@ -431,10 +431,10 @@ const calculateRydbergTransition = ({ nInitial, nFinal, constant, atomicNumber =
    const initialTerm = 1 / (nInitial * nInitial);
    const finalTerm = 1 / (nFinal * nFinal);
 
-   // The formula R * Z^2 * (1/n_lower^2 - 1/n_upper^2) gives a positive value for emission.
+   // The equation R * Z^2 * (1/n_lower^2 - 1/n_upper^2) gives a positive value for emission.
    // To get a consistent sign convention where E_final - E_initial has meaning:
    // E_final - E_initial = Constant * Z^2 * (1/n_initial^2 - 1/n_final^2)
-   // If using the negative of the binding energy formula:
+   // If using the negative of the binding energy equation:
    // E_n = -R_y * Z^2 / n^2
    // E_final - E_initial = (-R_y * Z^2 / nFinal^2) - (-R_y * Z^2 / nInitial^2)
    // = R_y * Z^2 * (1 / nInitial^2 - 1 / nFinal^2)

@@ -1,16 +1,16 @@
 const express = require("express");
 const solidMechanicsRouter = express.Router();
-const solidMechanicsController = require("../../controllers/engineering/solid-mechanics"); // Adjust the path as necessary
+const solidMechanicsController = require("../../controllers/physics/solid-mechanics"); // Adjust the path as necessary
 const { handleCalculationRequest } = require("../../utils/calcUtils"); // Adjust the path as necessary
 
 /**
  * @swagger
- * /engineering/youngs-modulus:
+ * /physics/youngs-modulus:
  *   post:
  *     summary: Calculates Young's Modulus (E = (F * L0) / (A * ΔL))
  *     description: Calculates Young's Modulus (elastic modulus) of a material under tensile or compressive stress.
  *     tags:
- *          - Engineering - Solid Mechanics
+ *          - Physics - Solid Mechanics
  *     requestBody:
  *       required: true
  *       content:
@@ -65,12 +65,12 @@ solidMechanicsRouter.post("/youngs-modulus", handleCalculationRequest(solidMecha
 
 /**
  * @swagger
- * /engineering/shear-modulus:
+ * /physics/shear-modulus:
  *   post:
  *     summary: Calculates shear modulus (G = (F * y) / (A * Δx))
  *     description: Calculates the shear modulus (modulus of rigidity) of a material under shear stress.
  *     tags:
- *          - Engineering - Solid Mechanics
+ *          - Physics - Solid Mechanics
  *     requestBody:
  *       required: true
  *       content:
@@ -125,12 +125,12 @@ solidMechanicsRouter.post("/shear-modulus", handleCalculationRequest(solidMechan
 
 /**
  * @swagger
- * /engineering/bulk-modulus:
+ * /physics/bulk-modulus:
  *   post:
  *     summary: Calculates bulk modulus (K = (F * V0) / (A * ΔV))
  *     description: Calculates the bulk modulus of a material under uniform pressure (hydrostatic stress).
  *     tags:
- *          - Engineering - Solid Mechanics
+ *          - Physics - Solid Mechanics
  *     requestBody:
  *       required: true
  *       content:
@@ -185,12 +185,12 @@ solidMechanicsRouter.post("/bulk-modulus", handleCalculationRequest(solidMechani
 
 /**
  * @swagger
- * /engineering/hookes-law:
+ * /physics/hookes-law:
  *   post:
  *     summary: Calculates force of a spring (F = -k * Δx)
  *     description: Calculates the restoring force exerted by an ideal spring according to Hooke's Law. Note - returns a negative value indicating the force opposes displacement.
  *     tags:
- *          - Engineering - Solid Mechanics
+ *          - Physics - Solid Mechanics
  *     requestBody:
  *       required: true
  *       content:

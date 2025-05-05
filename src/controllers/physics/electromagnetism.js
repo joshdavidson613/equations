@@ -35,7 +35,7 @@ const calculateCoulombsLaw = ({ k, q1, q2, r  , digits = 4}) => {
 
  /**
   * Calculates electric potential using V = ΔU_E/q.
-  * Note: Original JSDoc described this as calculating potential energy, but the formula matches potential.
+  * Note: Original JSDoc described this as calculating potential energy, but the equation matches potential.
   * @param {object} params - Parameters for the calculation.
   * @param {number} params.deltaUE - Change in potential energy (ΔU_E).
   * @param {number} params.q - Charge (q).
@@ -50,7 +50,7 @@ const calculateCoulombsLaw = ({ k, q1, q2, r  , digits = 4}) => {
 
  /**
   * Calculates electric field using E = V/d.
-  * Note: Original JSDoc described this as calculating field and potential, but the formula matches field.
+  * Note: Original JSDoc described this as calculating field and potential, but the equation matches field.
   * @param {object} params - Parameters for the calculation.
   * @param {number} params.deltaV - Change in potential (ΔV).
   * @param {number} params.d - Distance (d).
@@ -195,7 +195,7 @@ const calculateCoulombsLaw = ({ k, q1, q2, r  , digits = 4}) => {
 
  /**
   * Calculates resistance using R = V/I (from Ohm's Law).
-  * Note: Original JSDoc described this as calculating voltage, but the formula matches resistance.
+  * Note: Original JSDoc described this as calculating voltage, but the equation matches resistance.
   * @param {object} params - Parameters for the calculation.
   * @param {number} params.V - Voltage (V).
   * @param {number} params.I - Current (I).
@@ -359,14 +359,14 @@ const calculateCoulombsLaw = ({ k, q1, q2, r  , digits = 4}) => {
  };
 
  /**
-  * Calculates a value based on the Biot-Savart Law formula provided: (μ₀ I ds) / (4π r²).
-  * Note: The formula in the code differs from the JSDoc formula `B = (μ₀I)/(4πr)`. Using the code's formula.
+  * Calculates a value based on the Biot-Savart Law equation provided: (μ₀ I ds) / (4π r²).
+  * Note: The equation in the code differs from the JSDoc equation `B = (μ₀I)/(4πr)`. Using the code's equation.
   * @param {object} params - Parameters for the calculation.
   * @param {number} params.mu0 - Permeability of free space (μ₀).
   * @param {number} params.I - Current (I).
   * @param {number} params.ds - Differential length element (ds).
   * @param {number} params.r - Distance from element (r).
-  * @returns {number} Magnetic field contribution dB (based on the code's formula).
+  * @returns {number} Magnetic field contribution dB (based on the code's equation).
   * @throws {Error} If inputs are not finite numbers.
   */
  const calculateBiotSavartLaw = ({ mu0, I, ds, r  , digits = 4}) => {
@@ -461,7 +461,7 @@ const calculateCoulombsLaw = ({ k, q1, q2, r  , digits = 4}) => {
 
  /**
   * Calculates induced emf in a moving conductor using emf = Blv.
-  * Note: Standard formula includes sin(theta) and a negative sign. Using code's Blv formula.
+  * Note: Standard equation includes sin(theta) and a negative sign. Using code's Blv equation.
   * @param {object} params - Parameters for the calculation.
   * @param {number} params.B - Magnetic field (B).
   * @param {number} params.l - Length of conductor (l).
@@ -492,7 +492,7 @@ const calculateCoulombsLaw = ({ k, q1, q2, r  , digits = 4}) => {
 
  /**
   * Calculates the induced emf in an inductor using emf = -L dI/dt.
-  * Note: Original JSDoc described this as calculating inductance, but the formula calculates induced emf.
+  * Note: Original JSDoc described this as calculating inductance, but the equation calculates induced emf.
   * @param {object} params - Parameters for the calculation.
   * @param {number} params.L - Inductance (L).
   * @param {number} params.dI - Change in current (ΔI).

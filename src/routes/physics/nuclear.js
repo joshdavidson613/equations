@@ -54,7 +54,7 @@ const { handleCalculationRequest, validateNumber } = require("../../utils/calcUt
  *                   description: Error message
  */
 relativityRouter.post("/activity", handleCalculationRequest(nuclear.calculateActivity));
-
+ 
 /**
  * @swagger
  * /physics/half-life:

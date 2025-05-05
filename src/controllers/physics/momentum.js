@@ -1,7 +1,5 @@
 const {validateNumber } = require("../../utils/calcUtils"); // Adjust the path as necessary
 
-
-
 /**
  * Calculates momentum using p = mv.
  * @param {object} params - Parameters for the calculation.

@@ -216,7 +216,7 @@ wavesOpticsRouter.post("/pressure-level", handleCalculationRequest(wavesOpticsCo
  * /physics/doppler-effect:
  *   post:
  *     summary: Calculates Doppler effect velocity factor ((c + v_o) / (c - v_s))
- *     description: Calculates the velocity factor portion of the Doppler effect formula (f' = f * factor). Positive velocities for observer moving towards source, source moving towards observer.
+ *     description: Calculates the velocity factor portion of the Doppler effect equation (f' = f * factor). Positive velocities for observer moving towards source, source moving towards observer.
  *     tags:
  *          - Physics - Waves and Optics
  *     requestBody:

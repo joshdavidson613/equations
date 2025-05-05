@@ -87,7 +87,7 @@ const calculateCerenkovAngle = ({ c, n, vp  , digits = 4}) => {
   * @param {number} params.f - Focal length (f).
   * @param {number} params.doValue - Object distance (do).
   * @param {number} params.diValue - Image distance (di).
-  * @returns {boolean} True if lens formula holds.
+  * @returns {boolean} True if lens equation holds.
   * @throws {Error} If inputs are not finite numbers.
   */
  const calculateImageLocation = ({ f, doValue, diValue  , digits = 4}) => {
@@ -104,7 +104,7 @@ const calculateCerenkovAngle = ({ c, n, vp  , digits = 4}) => {
   * @param {number} params.hoValue - Object height (h).
   * @param {number} params.diValue - Image distance (di).
   * @param {number} params.doValue - Object distance (do).
-  * @returns {boolean} True if magnification formula holds.
+  * @returns {boolean} True if magnification equation holds.
   * @throws {Error} If inputs are not finite numbers.
   */
  const calculateImageSize = ({ hiValue, hoValue, diValue, doValue  , digits = 4}) => {

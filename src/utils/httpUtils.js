@@ -10,10 +10,10 @@ const supabase = supabaseConfig.supabase;
  * @param {string} message - A human-readable message to include in the response.
  * @param {*} content - The data or content to include in the response (can be null).
  */
-async function sendRes(res, httpCode, message, content) {
+async function sendRes(res, httpCode, message, content = {}) {
    if (!httpCode) {
       console.error(message, " | ", JSON.stringify(content)); // Log the details of the error being sent
-      res.status(httpCodes.InternalServerError.code).json({
+     return  res.status(httpCodes.InternalServerError.code).json({
          message: "HTTP code was not provided for error: " + message,
          error: content,
       });
@@ -26,7 +26,10 @@ async function sendRes(res, httpCode, message, content) {
          console.error(message, "|", JSON.stringify(content)); // Log the details of the error being sent
       }
 
-      res.status(httpCode.code).json({ ...content });
+      if(Array.isArray(content)) {
+         return res.status(httpCode.code).json({ result: content }); // so express doesn't wrap the array in an object
+      }
+      return res.status(httpCode.code).json({ ...content });
    }
 }
 

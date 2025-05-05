@@ -1,17 +1,17 @@
 const express = require("express");
 const thermalThermodynamicsRouter = express.Router();
-const thermalThermodynamicsController = require("../../controllers/engineering/thermal-thermodyanmics"); // Adjust the path as necessary
+const thermalThermodynamicsController = require("../../controllers/physics/thermal-thermodyanmics"); // Adjust the path as necessary
 const { handleCalculationRequest } = require("../../utils/calcUtils"); // Adjust the path as necessary
 
 
 /**
  * @swagger
- * /engineering/solid-expansion-length:
+ * /physics/solid-expansion-length:
  *   post:
  *     summary: Calculates solid linear thermal expansion (ΔL = αL0ΔT)
  *     description: Calculates the change in length of a solid material due to a temperature change.
  *     tags:
- *          - Engineering - Thermal Physics / Thermodynamics
+ *          - Physics - Thermal Physics / Thermodynamics
  *     requestBody:
  *       required: true
  *       content:
@@ -62,12 +62,12 @@ thermalThermodynamicsRouter.post("/solid-expansion-length", handleCalculationReq
 
 /**
  * @swagger
- * /engineering/solid-expansion-area:
+ * /physics/solid-expansion-area:
  *   post:
  *     summary: Calculates solid area thermal expansion (ΔA = 2αA0ΔT)
  *     description: Calculates the change in area of a solid material due to a temperature change, using the linear expansion coefficient.
  *     tags:
- *          - Engineering - Thermal Physics / Thermodynamics
+ *          - Physics - Thermal Physics / Thermodynamics
  *     requestBody:
  *       required: true
  *       content:
@@ -118,12 +118,12 @@ thermalThermodynamicsRouter.post("/solid-expansion-area", handleCalculationReque
 
 /**
  * @swagger
- * /engineering/solid-expansion-volume:
+ * /physics/solid-expansion-volume:
  *   post:
  *     summary: Calculates solid volume thermal expansion (ΔV = 3αV0ΔT)
  *     description: Calculates the change in volume of a solid material due to a temperature change, using the linear expansion coefficient.
  *     tags:
- *          - Engineering - Thermal Physics / Thermodynamics
+ *          - Physics - Thermal Physics / Thermodynamics
  *     requestBody:
  *       required: true
  *       content:
@@ -174,12 +174,12 @@ thermalThermodynamicsRouter.post("/solid-expansion-volume", handleCalculationReq
 
 /**
  * @swagger
- * /engineering/liquid-expansion:
+ * /physics/liquid-expansion:
  *   post:
  *     summary: Calculates liquid thermal expansion (ΔV = βV0ΔT)
  *     description: Calculates the change in volume of a liquid due to a temperature change.
  *     tags:
- *          - Engineering - Thermal Physics / Thermodynamics
+ *          - Physics - Thermal Physics / Thermodynamics
  *     requestBody:
  *       required: true
  *       content:
@@ -230,12 +230,12 @@ thermalThermodynamicsRouter.post("/liquid-expansion", handleCalculationRequest(t
 
 /**
  * @swagger
- * /engineering/sensible-heat:
+ * /physics/sensible-heat:
  *   post:
  *     summary: Calculates sensible heat (Q = mcΔT)
  *     description: Calculates the heat transferred causing a change in temperature of a substance.
  *     tags:
- *          - Engineering - Thermal Physics / Thermodynamics
+ *          - Physics - Thermal Physics / Thermodynamics
  *     requestBody:
  *       required: true
  *       content:
@@ -286,12 +286,12 @@ thermalThermodynamicsRouter.post("/sensible-heat", handleCalculationRequest(ther
 
 /**
  * @swagger
- * /engineering/latent-heat:
+ * /physics/latent-heat:
  *   post:
  *     summary: Calculates latent heat (Q = mL)
  *     description: Calculates the heat transferred during a phase change of a substance.
  *     tags:
- *          - Engineering - Thermal Physics / Thermodynamics
+ *          - Physics - Thermal Physics / Thermodynamics
  *     requestBody:
  *       required: true
  *       content:
@@ -338,12 +338,12 @@ thermalThermodynamicsRouter.post("/latent-heat", handleCalculationRequest(therma
 
 /**
  * @swagger
- * /engineering/ideal-gas-law:
+ * /physics/ideal-gas-law:
  *   post:
  *     summary: Validates Ideal Gas Law (PV = nRT)
  *     description: Checks if the Ideal Gas Law equation holds true for the given parameters. Returns boolean. Note- Uses strict equality (===) which may be sensitive to floating-point precision; consider tolerance for real-world checks.
  *     tags:
- *          - Engineering - Thermal Physics / Thermodynamics
+ *          - Physics - Thermal Physics / Thermodynamics
  *     requestBody:
  *       required: true
  *       content:
@@ -402,12 +402,12 @@ thermalThermodynamicsRouter.post("/ideal-gas-law", handleCalculationRequest(ther
 
 /**
  * @swagger
- * /engineering/molecular-ke:
+ * /physics/molecular-ke:
  *   post:
  *     summary: Calculates average molecular kinetic energy (KE = (3/2)kT)
  *     description: Calculates the average translational kinetic energy per molecule of an ideal gas.
  *     tags:
- *          - Engineering - Thermal Physics / Thermodynamics
+ *          - Physics - Thermal Physics / Thermodynamics
  *     requestBody:
  *       required: true
  *       content:
@@ -454,12 +454,12 @@ thermalThermodynamicsRouter.post("/molecular-ke", handleCalculationRequest(therm
 
 /**
  * @swagger
- * /engineering/molecular-speed-vp:
+ * /physics/molecular-speed-vp:
  *   post:
  *     summary: Calculates most probable molecular speed (v_p = √(2kT/m))
  *     description: Calculates the most probable speed of molecules in an ideal gas according to the Maxwell-Boltzmann distribution.
  *     tags:
- *          - Engineering - Thermal Physics / Thermodynamics
+ *          - Physics - Thermal Physics / Thermodynamics
  *     requestBody:
  *       required: true
  *       content:
@@ -510,12 +510,12 @@ thermalThermodynamicsRouter.post("/molecular-speed-vp", handleCalculationRequest
 
 /**
  * @swagger
- * /engineering/molecular-speed-avg:
+ * /physics/molecular-speed-avg:
  *   post:
  *     summary: Calculates average molecular speed (v_avg = √(8kT/(πm)))
  *     description: Calculates the average speed of molecules in an ideal gas according to the Maxwell-Boltzmann distribution.
  *     tags:
- *          - Engineering - Thermal Physics / Thermodynamics
+ *          - Physics - Thermal Physics / Thermodynamics
  *     requestBody:
  *       required: true
  *       content:
@@ -566,12 +566,12 @@ thermalThermodynamicsRouter.post("/molecular-speed-avg", handleCalculationReques
 
 /**
  * @swagger
- * /engineering/molecular-speed-rms:
+ * /physics/molecular-speed-rms:
  *   post:
  *     summary: Calculates root mean square molecular speed (v_rms = √(3kT/m))
  *     description: Calculates the root mean square speed of molecules in an ideal gas according to the Maxwell-Boltzmann distribution.
  *     tags:
- *          - Engineering - Thermal Physics / Thermodynamics
+ *          - Physics - Thermal Physics / Thermodynamics
  *     requestBody:
  *       required: true
  *       content:
@@ -620,242 +620,15 @@ thermalThermodynamicsRouter.post("/molecular-speed-avg", handleCalculationReques
  */
 thermalThermodynamicsRouter.post("/molecular-speed-rms", handleCalculationRequest(thermalThermodynamicsController.calculateMolecularSpeedRMS));
 
-/**
- * @swagger
- * /engineering/thermal-conduction:
- *   post:
- *     summary: Calculates thermal conduction rate (Q/t = (kAΔT) / L)
- *     description: Calculates the rate of heat transfer by conduction through a material. Note- The function calculates Q, assuming a time interval is implied by the formula's usual use for rate. Documentation states Q, but the formula is typically for Q/t. Clarifying this difference. The function returns the result of the right side of the rate equation.
- *     tags:
- *          - Engineering - Thermal Physics / Thermodynamics
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               k:
- *                 type: number
- *                 description: Thermal conductivity (k)
- *               A:
- *                 type: number
- *                 description: Cross-sectional area (A)
- *               deltaT:
- *                 type: number
- *                 description: Temperature difference across the material (ΔT)
- *               L:
- *                 type: number
- *                 description: Thickness of the material (L)
- *               digits:
- *                type: integer
- *                description: Number of decimal places to round the result to (optional, default is 4, value must be 0-16) 
- *                default: 4
- *             required:
- *               - k
- *               - A
- *               - deltaT
- *               - L
- *     responses:
- *       200:
- *         description: Successful calculation of heat transfer rate.
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 result:
- *                   type: number
- *                   description: Heat transfer rate (Q/t)
- *       400:
- *         description: Invalid input (e.g., non-finite numbers, thickness is zero).
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 error:
- *                   type: string
- *                   description: Error message
- */
-thermalThermodynamicsRouter.post("/thermal-conduction", handleCalculationRequest(thermalThermodynamicsController.calculateThermalConduction));
 
 /**
  * @swagger
- * /engineering/stefan-boltzmann-law:
- *   post:
- *     summary: Calculates thermal radiation power (P = εσA(T^4 - T0^4))
- *     description: Calculates the net rate of energy radiated by an object, considering its surroundings.
- *     tags:
- *          - Engineering - Thermal Physics / Thermodynamics
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               epsilon:
- *                 type: number
- *                 description: Emissivity (ε)
- *               sigma:
- *                 type: number
- *                 description: Stefan-Boltzmann constant (σ)
- *               A:
- *                 type: number
- *                 description: Surface area (A)
- *               T:
- *                 type: number
- *                 description: Object temperature in Kelvin (T)
- *               T0:
- *                 type: number
- *                 description: Surrounding temperature in Kelvin (T0)
- *               digits:
- *                type: integer
- *                description: Number of decimal places to round the result to (optional, default is 4, value must be 0-16) 
- *                default: 4
- *             required:
- *               - epsilon
- *               - sigma
- *               - A
- *               - T
- *               - T0
- *     responses:
- *       200:
- *         description: Successful calculation of radiated power.
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 result:
- *                   type: number
- *                   description: Radiated power (P)
- *       400:
- *         description: Invalid input (e.g., non-finite numbers, negative temperatures for power calculation).
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 error:
- *                   type: string
- *                   description: Error message
- */
-thermalThermodynamicsRouter.post("/stefan-boltzmann-law", handleCalculationRequest(thermalThermodynamicsController.calculateStefanBoltzmannLaw));
-
-/**
- * @swagger
- * /engineering/wien-law-lambda-max:
- *   post:
- *     summary: Calculates peak wavelength using Wien's Law (λ_max = b/T)
- *     description: Calculates the wavelength at which the emission spectrum of a black body is maximum.
- *     tags:
- *          - Engineering - Thermal Physics / Thermodynamics
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               b:
- *                 type: number
- *                 description: Wien's displacement constant (b)
- *               T:
- *                 type: number
- *                 description: Temperature in Kelvin (T)
- *               digits:
- *                type: integer
- *                description: Number of decimal places to round the result to (optional, default is 4, value must be 0-16) 
- *                default: 4
- *             required:
- *               - b
- *               - T
- *     responses:
- *       200:
- *         description: Successful calculation of maximum wavelength.
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 result:
- *                   type: number
- *                   description: Maximum wavelength (λ_max)
- *       400:
- *         description: Invalid input (e.g., non-finite numbers, temperature is zero).
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 error:
- *                   type: string
- *                   description: Error message
- */
-thermalThermodynamicsRouter.post("/wien-law-lambda-max", handleCalculationRequest(thermalThermodynamicsController.calculateWienLawLambdaMax));
-
-/**
- * @swagger
- * /engineering/wien-law-f-max:
- *   post:
- *     summary: Calculates peak frequency using Wien's Law (f_max = b' * T)
- *     description: Calculates the frequency at which the emission spectrum of a black body is maximum. Note- This version uses a modified Wien's constant b'.
- *     tags:
- *          - Engineering - Thermal Physics / Thermodynamics
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               bPrime:
- *                 type: number
- *                 description: Modified Wien's constant (b')
- *               T:
- *                 type: number
- *                 description: Temperature in Kelvin (T)
- *               digits:
- *                type: integer
- *                description: Number of decimal places to round the result to (optional, default is 4, value must be 0-16) 
- *                default: 4
- *             required:
- *               - bPrime
- *               - T
- *     responses:
- *       200:
- *         description: Successful calculation of peak frequency.
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 result:
- *                   type: number
- *                   description: Peak frequency (f_max)
- *       400:
- *         description: Invalid input (e.g., non-finite numbers).
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 error:
- *                   type: string
- *                   description: Error message
- */
-thermalThermodynamicsRouter.post("/wien-law-f-max", handleCalculationRequest(thermalThermodynamicsController.calculateWienLawFMax));
-
-/**
- * @swagger
- * /engineering/internal-energy-change:
+ * /physics/internal-energy-change:
  *   post:
  *     summary: Calculates internal energy change for ideal monatomic gas (ΔU = (3/2)nRΔT)
  *     description: Calculates the change in internal energy for a monatomic ideal gas undergoing a temperature change.
  *     tags:
- *          - Engineering - Thermal Physics / Thermodynamics
+ *          - Physics - Thermal Physics / Thermodynamics
  *     requestBody:
  *       required: true
  *       content:
@@ -902,10 +675,10 @@ thermalThermodynamicsRouter.post("/internal-energy-change", handleCalculationReq
 
 /**
  * @swagger
- * /engineering/thermodynamic-work:
+ * /physics/thermodynamic-work:
  *   post:
  *     summary: Calculates thermodynamic work done by system at constant pressure (W = -PΔV)
- *     description: Calculates the work done by or on a system during a thermodynamic process at constant pressure. Note- Formula calculates work *done by* the system, positive for expansion, negative for compression. Function returns -P*deltaV, consistent with work *done by* the system according to the formula W = PΔV, with an added negative sign which may imply work *done on* the system depending on convention. Documenting the function's output.
+ *     description: Calculates the work done by or on a system during a thermodynamic process at constant pressure. Note- Equation calculates work *done by* the system, positive for expansion, negative for compression. Function returns -P*deltaV, consistent with work *done by* the system according to the equation W = PΔV, with an added negative sign which may imply work *done on* the system depending on convention. Documenting the function's output.
  *     tags:
  *          - Physics - Thermodynamics
  *     requestBody:
@@ -954,7 +727,7 @@ thermalThermodynamicsRouter.post("/thermodynamic-work", handleCalculationRequest
 
 /**
  * @swagger
- * /engineering/efficiency-real:
+ * /physics/efficiency-real:
  *   post:
  *     summary: Calculates efficiency of a real engine (η_real = 1 - (Q_C / Q_H))
  *     description: Calculates the thermal efficiency of a heat engine based on heat absorbed and rejected.
@@ -1006,7 +779,7 @@ thermalThermodynamicsRouter.post("/efficiency-real", handleCalculationRequest(th
 
 /**
  * @swagger
- * /engineering/efficiency-ideal:
+ * /physics/efficiency-ideal:
  *   post:
  *     summary: Calculates ideal efficiency (Carnot) (η_ideal = 1 - (T_C / T_H))
  *     description: Calculates the maximum theoretical efficiency of a heat engine operating between two temperatures (Carnot efficiency).
@@ -1058,7 +831,7 @@ thermalThermodynamicsRouter.post("/efficiency-ideal", handleCalculationRequest(t
 
 /**
  * @swagger
- * /engineering/cop-real:
+ * /physics/cop-real:
  *   post:
  *     summary: Calculates coefficient of performance for a real refrigerator (COP_real = QC / (QH - QC))
  *     description: Calculates the coefficient of performance for a real refrigerator or heat pump.
@@ -1110,7 +883,7 @@ thermalThermodynamicsRouter.post("/cop-real", handleCalculationRequest(thermalTh
 
 /**
  * @swagger
- * /engineering/cop-ideal:
+ * /physics/cop-ideal:
  *   post:
  *     summary: Calculates coefficient of performance for an ideal refrigerator (COP_ideal = TC / (TH - TC))
  *     description: Calculates the maximum theoretical coefficient of performance for a refrigerator or heat pump operating between two temperatures.
