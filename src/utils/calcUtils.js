@@ -1,5 +1,5 @@
 const { sendRes } = require("./httpUtils"); // Import the sendRes function from responseUtils
-const { httpCodes } = require("../enums/enums"); // Import the httpCodes object from httpUtils
+const { httpCodes } = require("../enums/http"); // Import the httpCodes object from httpUtils
 // Helper middleware/function to handle calculation requests generically
 // It expects the calculation function to accept a single object parameter (the request body).
 // If the input includes a 'digits' parameter (a non-negative integer), the calculated result

@@ -1,4 +1,4 @@
-const { httpCodes } = require("../enums/enums.js");
+const { httpCodes } = require("../enums/http.js");
 const supabaseConfig = require("../config/supabase.js");
 const supabase = supabaseConfig.supabase;
 

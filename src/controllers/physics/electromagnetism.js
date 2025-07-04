@@ -1,4 +1,4 @@
-const { validateNumber } = require("../../utils/calcUtils"); // Adjust the path as necessary
+const { validateNumber, formatNumber } = require("../../utils/calcUtils"); // Adjust the path as necessary
 
 // Keep all original functions defined at the top level with their JSDoc
 /**
@@ -15,7 +15,7 @@ const calculateCoulombsLaw = ({ k, q1, q2, r  , digits = 4}) => {
     validateNumber(k, "k");
     validateNumber(q1, "q1");
     validateNumber(q2, "q2");
-    validateNumber(r, "r");
+    validateNumber(r, "r", { checkZero: true, checkNonNegative: true });
     return formatNumber((k * (q1 * q2)) / (r * r), digits);
  };
 
@@ -29,7 +29,7 @@ const calculateCoulombsLaw = ({ k, q1, q2, r  , digits = 4}) => {
   */
  const calculateElectricField = ({ FE, q  , digits = 4}) => {
     validateNumber(FE, "FE");
-    validateNumber(q, "q");
+    validateNumber(q, "q",  { checkZero: true });
     return formatNumber(FE / q, digits);
  };
 
@@ -44,7 +44,7 @@ const calculateCoulombsLaw = ({ k, q1, q2, r  , digits = 4}) => {
   */
  const calculateElectricPotential = ({ deltaUE, q  , digits = 4}) => {
     validateNumber(deltaUE, "deltaUE");
-    validateNumber(q, "q");
+    validateNumber(q, "q", { checkZero: true });
     return formatNumber(deltaUE / q, digits);
  };
 
@@ -59,7 +59,7 @@ const calculateCoulombsLaw = ({ k, q1, q2, r  , digits = 4}) => {
   */
  const calculateFieldAndPotential = ({ deltaV, d  , digits = 4}) => {
     validateNumber(deltaV, "deltaV");
-    validateNumber(d, "d");
+    validateNumber(d, "d", { checkZero: true });
     return formatNumber(deltaV / d, digits);
  };
 
@@ -73,7 +73,7 @@ const calculateCoulombsLaw = ({ k, q1, q2, r  , digits = 4}) => {
   */
  const calculateCapacitance = ({ Q, V  , digits = 4}) => {
     validateNumber(Q, "Q");
-    validateNumber(V, "V");
+    validateNumber(V, "V", { checkZero: true });
     return formatNumber(Q / V, digits);
  };
 
@@ -91,7 +91,7 @@ const calculateCoulombsLaw = ({ k, q1, q2, r  , digits = 4}) => {
      const EPSILON_0 = 8.85e-12; // Permittivity of free space
     validateNumber(kEpsilon, "kEpsilon");
     validateNumber(A, "A");
-    validateNumber(d, "d");
+    validateNumber(d, "d", { checkZero: true, checkNonNegative: true });
     return formatNumber((kEpsilon * EPSILON_0 * A) / d, digits);
  };
 
@@ -110,8 +110,8 @@ const calculateCoulombsLaw = ({ k, q1, q2, r  , digits = 4}) => {
      const EPSILON_0 = 8.85e-12; // Permittivity of free space
     validateNumber(kEpsilon, "kEpsilon");
     validateNumber(l, "l");
-    validateNumber(r2, "r2");
-    validateNumber(r1, "r1");
+    validateNumber(r2, "r2",{ checkZero: true, checkNonNegative: true });
+    validateNumber(r1, "r1", { checkZero: true, checkNonNegative: true });
     return formatNumber((2 * Math.PI * kEpsilon * EPSILON_0 * l) / Math.log(r2 / r1), digits);
  };
 
@@ -128,8 +128,8 @@ const calculateCoulombsLaw = ({ k, q1, q2, r  , digits = 4}) => {
  const calculateSphericalCapacitor = ({ kEpsilon, r1, r2  , digits = 4}) => {
      const EPSILON_0 = 8.85e-12; // Permittivity of free space
     validateNumber(kEpsilon, "kEpsilon");
-    validateNumber(r1, "r1");
-    validateNumber(r2, "r2");
+    validateNumber(r1, "r1", { checkZero: true, checkNonNegative: true });
+    validateNumber(r2, "r2", {});
     return formatNumber((4 * Math.PI * kEpsilon * EPSILON_0) / (1 / r1 - 1 / r2), digits);
  };
 
@@ -146,7 +146,7 @@ const calculateCoulombsLaw = ({ k, q1, q2, r  , digits = 4}) => {
  const calculateCapacitivePE = ({ Q, V, C  , digits = 4}) => {
     validateNumber(Q, "Q");
     validateNumber(V, "V");
-    validateNumber(C, "C");
+    validateNumber(C, "C", { checkZero: true });
     // Original logic
     return formatNumber((0.5 * Q * V === 0.5 * C * V * V) === (0.5 * Q * Q) / C, digits);
  };
@@ -161,7 +161,7 @@ const calculateCoulombsLaw = ({ k, q1, q2, r  , digits = 4}) => {
   */
  const calculateElectricCurrent = ({ deltaQ, deltaT  , digits = 4}) => {
     validateNumber(deltaQ, "deltaQ");
-    validateNumber(deltaT, "deltaT");
+    validateNumber(deltaT, "deltaT", { checkZero: true });
     return formatNumber(deltaQ / deltaT, digits);
  };
 
@@ -175,7 +175,7 @@ const calculateCoulombsLaw = ({ k, q1, q2, r  , digits = 4}) => {
   */
  const calculateChargeDensity = ({ Q, V  , digits = 4}) => {
     validateNumber(Q, "Q");
-    validateNumber(V, "V");
+    validateNumber(V, "V", { checkZero: true });
     return formatNumber(Q / V, digits);
  };
 
@@ -189,7 +189,7 @@ const calculateCoulombsLaw = ({ k, q1, q2, r  , digits = 4}) => {
   */
  const calculateCurrentDensity = ({ I, A  , digits = 4}) => {
     validateNumber(I, "I");
-    validateNumber(A, "A");
+    validateNumber(A, "A", { checkZero: true, checkNonNegative: true });
     return formatNumber(I / A, digits);
  };
 
@@ -204,7 +204,7 @@ const calculateCoulombsLaw = ({ k, q1, q2, r  , digits = 4}) => {
   */
  const calculateOhmsLaw = ({ V, I  , digits = 4}) => {
     validateNumber(V, "V");
-    validateNumber(I, "I");
+    validateNumber(I, "I", { checkZero: true });
     return formatNumber(V / I, digits);
  };
 
@@ -216,7 +216,7 @@ const calculateCoulombsLaw = ({ k, q1, q2, r  , digits = 4}) => {
   * @throws {Error} If inputs are not finite numbers.
   */
  const calculateResitivityConductivity = ({ rhoValue  , digits = 4}) => {
-    validateNumber(rhoValue, "rhoValue");
+    validateNumber(rhoValue, "rhoValue", { checkZero: true });
     return formatNumber(1 / rhoValue, digits);
  };
 
@@ -232,7 +232,7 @@ const calculateCoulombsLaw = ({ k, q1, q2, r  , digits = 4}) => {
  const calculateElectricResistance = ({ rhoValue, l, A  , digits = 4}) => {
     validateNumber(rhoValue, "rhoValue");
     validateNumber(l, "l");
-    validateNumber(A, "A");
+    validateNumber(A, "A", { checkZero: true, checkNonNegative: true });
     return formatNumber((rhoValue * l) / A, digits);
  };
 
@@ -249,8 +249,8 @@ const calculateCoulombsLaw = ({ k, q1, q2, r  , digits = 4}) => {
  const calculateElectricPower = ({ V, I, R  , digits = 4}) => {
     validateNumber(V, "V");
     validateNumber(I, "I");
-    validateNumber(R, "R");
-    // Original logic
+    validateNumber(R, "R", { checkZero: true });
+   
     return formatNumber((V * I === I * I * R) === (V * V) / R, digits);
  };
 
@@ -373,7 +373,7 @@ const calculateCoulombsLaw = ({ k, q1, q2, r  , digits = 4}) => {
     validateNumber(mu0, "mu0");
     validateNumber(I, "I");
     validateNumber(ds, "ds");
-    validateNumber(r, "r");
+    validateNumber(r, "r", { checkZero: true, checkNonNegative: true });
     return formatNumber((mu0 * I * ds) / (4 * Math.PI * r * r), digits);
  };
 
@@ -405,7 +405,7 @@ const calculateCoulombsLaw = ({ k, q1, q2, r  , digits = 4}) => {
  const calculateStraightWire = ({ mu0, I, r  , digits = 4}) => {
     validateNumber(mu0, "mu0");
     validateNumber(I, "I");
-    validateNumber(r, "r");
+    validateNumber(r, "r", { checkZero: true, checkNonNegative: true });
     return formatNumber((mu0 * I) / (2 * Math.PI * r), digits);
  };
 
@@ -421,9 +421,9 @@ const calculateCoulombsLaw = ({ k, q1, q2, r  , digits = 4}) => {
   */
  const calculateParallelWires = ({ mu0, I1, I2, d  , digits = 4}) => {
     validateNumber(mu0, "mu0");
-    validateNumber(I1, "I1");
-    validateNumber(I2, "I2");
-    validateNumber(d, "d");
+    validateNumber(I1, "I1", { checkZero: true });
+    validateNumber(I2, "I2", { checkZero: true });
+    validateNumber(d, "d", { checkZero: true, checkNonNegative: true });
     return formatNumber(((mu0 / (2 * Math.PI)) * (I1 * I2)) / d, digits);
  };
 
@@ -486,7 +486,7 @@ const calculateCoulombsLaw = ({ k, q1, q2, r  , digits = 4}) => {
   */
  const calculateInducedEmf = ({ deltaPhiB, deltaT  , digits = 4}) => {
     validateNumber(deltaPhiB, "deltaPhiB");
-    validateNumber(deltaT, "deltaT");
+    validateNumber(deltaT, "deltaT", { checkZero: true });
     return formatNumber(-deltaPhiB / deltaT, digits);
  };
 
@@ -503,7 +503,7 @@ const calculateCoulombsLaw = ({ k, q1, q2, r  , digits = 4}) => {
  const calculateInductance = ({ L, dI, dt  , digits = 4}) => {
     validateNumber(L, "L");
     validateNumber(dI, "dI");
-    validateNumber(dt, "dt");
+    validateNumber(dt, "dt", { checkZero: true });
     // This calculates induced emf (-L dI/dt), not inductance L.
     return formatNumber((-L * dI) / dt, digits);
  };
@@ -517,8 +517,8 @@ const calculateCoulombsLaw = ({ k, q1, q2, r  , digits = 4}) => {
   * @throws {Error} If inputs are not finite numbers.
   */
  const calculateCapacitiveReactance = ({ f, C  , digits = 4}) => {
-    validateNumber(f, "f");
-    validateNumber(C, "C");
+    validateNumber(f, "f", { checkZero: true });
+    validateNumber(C, "C", { checkZero: true });
     return formatNumber(1 / (2 * Math.PI * f * C), digits);
  };
 

@@ -8,7 +8,11 @@ const en = [
          "Calculates the acceleration directed towards the center of a circular path using linear velocity and radius.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         a_c: "Centripetal acceleration (Acceleration m/s²)",
+         v: "Linear velocity (Speed m/s)",
+         r: "Radius of circular path (Length m)",
+      },
       topic: "Circular Motion",
    },
    {
@@ -20,7 +24,11 @@ const en = [
          "Calculates the centripetal acceleration vector component using angular velocity and radius. The negative sign indicates direction towards the center.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         a_c: "Centripetal acceleration (Acceleration m/s²)",
+         ω: "Angular velocity (Angular Velocity rad/s)",
+         r: "Radius of circular path (Length m)",
+      },
       topic: "Circular Motion",
    },
    {
@@ -32,7 +40,13 @@ const en = [
          "Calculates the electric force between two point charges. Returns signed force (positive for repulsion, negative for attraction).",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         F: "Electric force (Force N)",
+         k: "Coulomb's constant (Constant N·m²/C²)",
+         q1: "Charge 1 (Charge C)",
+         q2: "Charge 2 (Charge C)",
+         r: "Distance between charges (Length m)",
+      },
       topic: "Electromagnetism",
    },
    {
@@ -43,7 +57,12 @@ const en = [
       description: "Calculates the electric field strength based on the force exerted on a test charge.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         E: "Electric field magnitude (Electric Field N/C)",
+         k: "Coulomb's constant (Constant N·m²/C²)",
+         q: "Source charge (Charge C)",
+         r: "Distance from source charge (Length m)",
+      },
       topic: "Electromagnetism",
    },
    {
@@ -55,7 +74,12 @@ const en = [
          "Calculates the electric potential (voltage) based on the change in electric potential energy per unit charge. Note- Function name `calculateElectricPotential` is correct, but parameter `deltaUE` implies change, while the equation is typically V=U_E/q or ΔV=ΔU_E/q. Documenting based on the equation ΔV = ΔU_E/q and returning ΔV.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         V: "Electric potential (Voltage V)",
+         k: "Coulomb's constant (Constant N·m²/C²)",
+         q: "Source charge (Charge C)",
+         r: "Distance from source charge (Length m)",
+      },
       topic: "Electromagnetism",
    },
    {
@@ -67,7 +91,13 @@ const en = [
          'Calculates the magnitude of a uniform electric field based on the potential difference across a distance. Note- Function name "Field and Potential" is misleading; it calculates the Electric Field E.',
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         E_x: "Electric field component (Electric Field V/m)",
+         V: "Electric potential (Voltage V)",
+         x: "Position (Length m)",
+         ΔV: "Potential difference (Voltage V)",
+         d: "Distance (Length m)",
+      },
       topic: "Electromagnetism",
    },
    {
@@ -78,7 +108,11 @@ const en = [
       description: "Calculates capacitance based on the charge stored and the voltage across a capacitor.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         C: "Capacitance (Capacitance F)",
+         Q: "Charge (Charge C)",
+         V: "Voltage (Voltage V)",
+      },
       topic: "Electromagnetism",
    },
    {
@@ -90,7 +124,13 @@ const en = [
          "Calculates the capacitance of a parallel plate capacitor with a dielectric. Note- Function uses k * ε₀ as a single input (`kEpsilon`).",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         C: "Capacitance (Capacitance F)",
+         ε0: "Permittivity of free space (Constant F/m)",
+         k: "Dielectric constant (Dimensionless)",
+         A: "Area of plates (Area m²)",
+         d: "Distance between plates (Length m)",
+      },
       topic: "Electromagnetism",
    },
    {
@@ -102,7 +142,15 @@ const en = [
          "Calculates the capacitance of a cylindrical capacitor with a dielectric. Note- Function uses k * ε₀ as a single input (`kEpsilon`).",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         C: "Capacitance (Capacitance F)",
+         π: "Pi (Constant dimensionless)",
+         ε0: "Permittivity of free space (Constant F/m)",
+         k: "Dielectric constant (Dimensionless)",
+         L: "Length of cylinders (Length m)",
+         b: "Outer radius (Length m)",
+         a: "Inner radius (Length m)",
+      },
       topic: "Electromagnetism",
    },
    {
@@ -114,7 +162,14 @@ const en = [
          "Calculates the capacitance of a spherical capacitor with a dielectric. Note- Function uses k * ε₀ as a single input (`kEpsilon`).",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         C: "Capacitance (Capacitance F)",
+         π: "Pi (Constant dimensionless)",
+         ε0: "Permittivity of free space (Constant F/m)",
+         k: "Dielectric constant (Dimensionless)",
+         a: "Inner radius (Length m)",
+         b: "Outer radius (Length m)",
+      },
       topic: "Electromagnetism",
    },
    {
@@ -126,7 +181,12 @@ const en = [
          "Checks if the three common equations for potential energy stored in a capacitor are equivalent for the given Q, V, and C. Returns boolean. Note- Uses strict equality (===) which may be sensitive to floating-point precision; consider tolerance for real-world checks.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         U_C: "Capacitive potential energy (Energy J)",
+         Q: "Charge (Charge C)",
+         V: "Voltage (Voltage V)",
+         C: "Capacitance (Capacitance F)",
+      },
       topic: "Electromagnetism",
    },
    {
@@ -137,7 +197,11 @@ const en = [
       description: "Calculates electric current based on the amount of charge passing through a point per unit time.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         I: "Electric current (Current A)",
+         ΔQ: "Change in charge (Charge C)",
+         Δt: "Change in time (Time s)",
+      },
       topic: "Electromagnetism",
    },
    {
@@ -148,7 +212,11 @@ const en = [
       description: "Calculates the average charge density (charge per unit volume).",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         ρ: "Volume charge density (Charge Density C/m³)",
+         Q: "Total charge (Charge C)",
+         V: "Volume (Volume m³)",
+      },
       topic: "Electromagnetism",
    },
    {
@@ -159,7 +227,11 @@ const en = [
       description: "Calculates electric current density (current per unit cross-sectional area).",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         J: "Current density (Current Density A/m²)",
+         I: "Electric current (Current A)",
+         A: "Area (Area m²)",
+      },
       topic: "Electromagnetism",
    },
    {
@@ -171,7 +243,11 @@ const en = [
          "Calculates resistance based on voltage and current. Note- The function calculates Resistance R from V and I.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         V: "Voltage (Voltage V)",
+         I: "Current (Current A)",
+         R: "Resistance (Resistance Ω)",
+      },
       topic: "Electromagnetism",
    },
    {
@@ -182,7 +258,10 @@ const en = [
       description: "Calculates conductivity (σ) from resistivity (ρ).",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         σ: "Conductivity (Conductivity S/m)",
+         ρ: "Resistivity (Resistivity Ω·m)",
+      },
       topic: "Electromagnetism",
    },
    {
@@ -194,7 +273,12 @@ const en = [
          "Calculates the resistance of a conductor based on its resistivity, length, and cross-sectional area. Note- Uses `rhoValue` for resistivity.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         R: "Resistance (Resistance Ω)",
+         ρ: "Resistivity (Resistivity Ω·m)",
+         L: "Length (Length m)",
+         A: "Cross-sectional area (Area m²)",
+      },
       topic: "Electromagnetism",
    },
    {
@@ -206,7 +290,12 @@ const en = [
          "Checks if the three common equations for electric power are equivalent for the given V, I, and R. Returns boolean. Note- Uses strict equality (===) which may be sensitive to floating-point precision; consider tolerance for real-world checks.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         P: "Electric power (Power W)",
+         V: "Voltage (Voltage V)",
+         I: "Current (Current A)",
+         R: "Resistance (Resistance Ω)",
+      },
       topic: "Electromagnetism",
    },
    {
@@ -217,7 +306,10 @@ const en = [
       description: "Calculates the total equivalent resistance for multiple resistors connected in series.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         R_total: "Total resistance (Resistance Ω)",
+         R: "Individual resistance (Resistance Ω)",
+      },
       topic: "Electromagnetism",
    },
    {
@@ -228,7 +320,10 @@ const en = [
       description: "Calculates the total equivalent resistance for multiple resistors connected in parallel.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         R_total: "Total resistance (Resistance Ω)",
+         R: "Individual resistance (Resistance Ω)",
+      },
       topic: "Electromagnetism",
    },
    {
@@ -239,7 +334,10 @@ const en = [
       description: "Calculates the total equivalent capacitance for multiple capacitors connected in series.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         C_total: "Total capacitance (Capacitance F)",
+         C: "Individual capacitance (Capacitance F)",
+      },
       topic: "Electromagnetism",
    },
    {
@@ -250,7 +348,10 @@ const en = [
       description: "Calculates the total equivalent capacitance for multiple capacitors connected in parallel.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         C_total: "Total capacitance (Capacitance F)",
+         C: "Individual capacitance (Capacitance F)",
+      },
       topic: "Electromagnetism",
    },
    {
@@ -262,7 +363,13 @@ const en = [
          "Calculates the magnitude of the magnetic force exerted on a moving charged particle. Angle should be in radians.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         F_B: "Magnetic force magnitude (Force N)",
+         q: "Charge magnitude (Charge C)",
+         v: "Velocity magnitude (Speed m/s)",
+         B: "Magnetic field magnitude (Magnetic Field T)",
+         θ: "Angle between velocity and magnetic field (Angle rad)",
+      },
       topic: "Electromagnetism",
    },
    {
@@ -274,7 +381,13 @@ const en = [
          "Calculates the magnitude of the magnetic force exerted on a straight conductor carrying current in a magnetic field. Angle should be in radians.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         F_B: "Magnetic force magnitude (Force N)",
+         I: "Current (Current A)",
+         L: "Length of conductor (Length m)",
+         B: "Magnetic field magnitude (Magnetic Field T)",
+         θ: "Angle between current and magnetic field (Angle rad)",
+      },
       topic: "Electromagnetism",
    },
    {
@@ -286,7 +399,13 @@ const en = [
          "Calculates the magnitude of the magnetic field contribution from a differential current element perpendicular to the radius vector. Note- The function implements `(μ₀ * I * ds) / (4 * π * r^2)`, omitting the sin(θ) term often present in the differential form, effectively assuming θ=90 degrees or calculating only the component perpendicular to the radius vector in that specific plane. Documenting the equation implemented.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         dB: "Magnetic field contribution magnitude (Magnetic Field T)",
+         μ0: "Permeability of free space (Constant T·m/A)",
+         I: "Current (Current A)",
+         ds: "Differential length of current element (Length m)",
+         r: "Distance from current element (Length m)",
+      },
       topic: "Electromagnetism",
    },
    {
@@ -297,7 +416,12 @@ const en = [
       description: "Calculates the magnitude of the magnetic field inside a long ideal solenoid.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         B: "Magnetic field strength inside solenoid (Magnetic Field T)",
+         μ0: "Permeability of free space (Constant T·m/A)",
+         n: "Number of turns per unit length (Number per Length m⁻¹)",
+         I: "Current (Current A)",
+      },
       topic: "Electromagnetism",
    },
    {
@@ -309,7 +433,13 @@ const en = [
          "Calculates the magnitude of the magnetic field at a distance from a long, straight conductor carrying current.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         B: "Magnetic field strength from straight wire (Magnetic Field T)",
+         μ0: "Permeability of free space (Constant T·m/A)",
+         I: "Current (Current A)",
+         π: "Pi (Constant dimensionless)",
+         r: "Distance from wire (Length m)",
+      },
       topic: "Electromagnetism",
    },
    {
@@ -321,7 +451,14 @@ const en = [
          "Calculates the magnitude of the force per unit length between two long, parallel conductors carrying currents.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         "F/L": "Force per unit length (Force per Length N/m)",
+         μ0: "Permeability of free space (Constant T·m/A)",
+         I1: "Current in wire 1 (Current A)",
+         I2: "Current in wire 2 (Current A)",
+         π: "Pi (Constant dimensionless)",
+         d: "Distance between wires (Length m)",
+      },
       topic: "Electromagnetism",
    },
    {
@@ -333,7 +470,12 @@ const en = [
          "Calculates the electric flux through a flat surface in a uniform electric field. Angle should be between the electric field vector and the area vector, in radians.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         Φ_E: "Electric flux (Electric Flux N·m²/C)",
+         E: "Electric field magnitude (Electric Field N/C)",
+         A: "Area (Area m²)",
+         θ: "Angle between E and area vector (Angle rad)",
+      },
       topic: "Electromagnetism",
    },
    {
@@ -345,7 +487,12 @@ const en = [
          "Calculates the magnetic flux through a flat surface in a uniform magnetic field. Angle should be between the magnetic field vector and the area vector, in radians.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         Φ_B: "Magnetic flux (Magnetic Flux Wb)",
+         B: "Magnetic field magnitude (Magnetic Field T)",
+         A: "Area (Area m²)",
+         θ: "Angle between B and area vector (Angle rad)",
+      },
       topic: "Electromagnetism",
    },
    {
@@ -357,7 +504,12 @@ const en = [
          "Calculates the magnitude of the emf induced in a conductor moving perpendicular to a magnetic field. Note- The function calculates the magnitude Blv, omitting the negative sign sometimes used for direction (Lenz's Law).",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         ε: "Motional EMF magnitude (Voltage V)",
+         v: "Speed of conductor (Speed m/s)",
+         B: "Magnetic field magnitude (Magnetic Field T)",
+         L: "Length of conductor (Length m)",
+      },
       topic: "Electromagnetism",
    },
    {
@@ -368,7 +520,11 @@ const en = [
       description: "Calculates the emf induced by a changing magnetic flux according to Faraday's Law of Induction.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         ε: "Induced EMF (Voltage V)",
+         ΔΦ_B: "Change in magnetic flux (Magnetic Flux Wb)",
+         Δt: "Change in time (Time s)",
+      },
       topic: "Electromagnetism",
    },
    {
@@ -380,7 +536,12 @@ const en = [
          "Calculates the self-induced emf in an inductor due to a changing current. Note- The function is named `calculateInductance` but returns emf using this equation. Documenting what it returns.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         ε_L: "Induced EMF in inductor (Voltage V)",
+         L: "Inductance (Inductance H)",
+         ΔI: "Change in current (Current A)",
+         Δt: "Change in time (Time s)",
+      },
       topic: "Electromagnetism",
    },
    {
@@ -391,7 +552,12 @@ const en = [
       description: "Calculates the opposition of a capacitor to alternating current.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         X_C: "Capacitive reactance (Reactance Ω)",
+         π: "Pi (Constant dimensionless)",
+         f: "Frequency (Frequency Hz)",
+         C: "Capacitance (Capacitance F)",
+      },
       topic: "Electromagnetism",
    },
    {
@@ -402,7 +568,12 @@ const en = [
       description: "Calculates the opposition of an inductor to alternating current.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         X_L: "Inductive reactance (Reactance Ω)",
+         π: "Pi (Constant dimensionless)",
+         f: "Frequency (Frequency Hz)",
+         L: "Inductance (Inductance H)",
+      },
       topic: "Electromagnetism",
    },
    {
@@ -414,7 +585,12 @@ const en = [
          "Calculates the total opposition to current flow in an AC circuit containing resistance, inductive reactance, and capacitive reactance.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         Z: "Impedance (Impedance Ω)",
+         R: "Resistance (Resistance Ω)",
+         X_L: "Inductive reactance (Reactance Ω)",
+         X_C: "Capacitive reactance (Reactance Ω)",
+      },
       topic: "Electromagnetism",
    },
    {
@@ -425,7 +601,11 @@ const en = [
       description: "Calculates density based on mass and volume.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         ρ: "Density (Density kg/m³)",
+         m: "Mass (Mass kg)",
+         V: "Volume (Volume m³)",
+      },
       topic: "Fluids And Thermodynamics",
    },
    {
@@ -436,7 +616,11 @@ const en = [
       description: "Calculates pressure based on force applied over an area.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         P: "Pressure (Pressure Pa)",
+         F: "Force (Force N)",
+         A: "Area (Area m²)",
+      },
       topic: "Fluids And Thermodynamics",
    },
    {
@@ -447,7 +631,13 @@ const en = [
       description: "Calculates the absolute pressure at a certain depth in a fluid.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         P: "Absolute pressure (Pressure Pa)",
+         P0: "Atmospheric or surface pressure (Pressure Pa)",
+         ρ: "Fluid density (Density kg/m³)",
+         g: "Acceleration due to gravity (Acceleration m/s²)",
+         h: "Depth (Length m)",
+      },
       topic: "Fluids And Thermodynamics",
    },
    {
@@ -459,7 +649,12 @@ const en = [
          "Calculates the buoyant force exerted by a fluid on a submerged or partially submerged object (Archimedes' principle).",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         F_B: "Buoyant force (Force N)",
+         ρ_fluid: "Fluid density (Density kg/m³)",
+         V_submerged: "Submerged volume (Volume m³)",
+         g: "Acceleration due to gravity (Acceleration m/s²)",
+      },
       topic: "Fluids And Thermodynamics",
    },
    {
@@ -470,7 +665,12 @@ const en = [
       description: "Calculates the rate at which mass passes a point per unit time.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         ṁ: "Mass flow rate (Mass Flow Rate kg/s)",
+         ρ: "Fluid density (Density kg/m³)",
+         A: "Area (Area m²)",
+         v: "Fluid velocity (Speed m/s)",
+      },
       topic: "Fluids And Thermodynamics",
    },
    {
@@ -481,7 +681,11 @@ const en = [
       description: "Calculates the rate at which volume passes a point per unit time.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         Q: "Volume flow rate (Volume Flow Rate m³/s)",
+         A: "Area (Area m²)",
+         v: "Fluid velocity (Speed m/s)",
+      },
       topic: "Fluids And Thermodynamics",
    },
    {
@@ -493,7 +697,13 @@ const en = [
          "Validates if Bernoulli's equation holds true for the given fluid properties and conditions at two points. Returns boolean. Note- Uses strict equality (===) which may be sensitive to floating-point precision; consider tolerance for real-world checks.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         P: "Pressure (Pressure Pa)",
+         ρ: "Fluid density (Density kg/m³)",
+         v: "Fluid velocity (Speed m/s)",
+         g: "Acceleration due to gravity (Acceleration m/s²)",
+         y: "Height (Length m)",
+      },
       topic: "Fluids And Thermodynamics",
    },
    {
@@ -505,7 +715,13 @@ const en = [
          "Calculates dynamic viscosity based on force, velocity gradient, and area. This equation is derived from shear stress/strain rate.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         μ: "Dynamic viscosity (Dynamic Viscosity Pa·s)",
+         F: "Force (Force N)",
+         Δy: "Distance perpendicular to flow (Length m)",
+         A: "Area (Area m²)",
+         Δvx: "Change in velocity (Speed m/s)",
+      },
       topic: "Fluids And Thermodynamics",
    },
    {
@@ -516,7 +732,11 @@ const en = [
       description: "Calculates kinematic viscosity from dynamic viscosity and density.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         ν: "Kinematic viscosity (Kinematic Viscosity m²/s)",
+         μ: "Dynamic viscosity (Dynamic Viscosity Pa·s)",
+         ρ: "Fluid density (Density kg/m³)",
+      },
       topic: "Fluids And Thermodynamics",
    },
    {
@@ -527,7 +747,13 @@ const en = [
       description: "Calculates the drag force on an object moving through a fluid.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         F_D: "Drag force (Force N)",
+         ρ: "Fluid density (Density kg/m³)",
+         v: "Velocity (Speed m/s)",
+         Cd: "Drag coefficient (Dimensionless)",
+         A: "Reference area (Area m²)",
+      },
       topic: "Fluids And Thermodynamics",
    },
    {
@@ -538,7 +764,11 @@ const en = [
       description: "Calculates the Mach number, the ratio of an object's speed to the speed of sound in the medium.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         M: "Mach number (Dimensionless)",
+         v: "Object speed (Speed m/s)",
+         c_sound: "Speed of sound in medium (Speed m/s)",
+      },
       topic: "Fluids And Thermodynamics",
    },
    {
@@ -550,7 +780,13 @@ const en = [
          "Calculates the Reynolds number, a dimensionless quantity used to predict flow patterns in different fluid flow situations.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         Re: "Reynolds number (Dimensionless)",
+         ρ: "Fluid density (Density kg/m³)",
+         v: "Velocity (Speed m/s)",
+         d: "Characteristic length (Length m)",
+         μ: "Dynamic viscosity (Dynamic Viscosity Pa·s)",
+      },
       topic: "Fluids And Thermodynamics",
    },
    {
@@ -562,7 +798,12 @@ const en = [
          "Calculates the Froude number, a dimensionless quantity used to indicate the influence of gravity on fluid motion.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         Fr: "Froude number (Dimensionless)",
+         v: "Velocity (Speed m/s)",
+         g: "Acceleration due to gravity (Acceleration m/s²)",
+         L: "Characteristic length (Length m)",
+      },
       topic: "Fluids And Thermodynamics",
    },
    {
@@ -573,7 +814,11 @@ const en = [
       description: "Calculates the surface tension of a liquid based on force and length.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         γ: "Surface tension (Surface Tension N/m)",
+         F: "Force (Force N)",
+         L: "Length (Length m)",
+      },
       topic: "Fluids And Thermodynamics",
    },
    {
@@ -585,7 +830,13 @@ const en = [
          "Calculates the attractive gravitational force between two point masses. Note- returns a negative value indicating attraction.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         F: "Gravitational force (Force N)",
+         G: "Gravitational constant (Constant N·m²/kg²)",
+         m1: "Mass 1 (Mass kg)",
+         m2: "Mass 2 (Mass kg)",
+         r: "Distance between masses (Length m)",
+      },
       topic: "Gravitation",
    },
    {
@@ -597,7 +848,12 @@ const en = [
          "Calculates the gravitational field strength at a distance from a point mass. Note- returns a negative value indicating direction towards the mass.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         g: "Gravitational field strength magnitude (Gravitational Field N/kg)",
+         G: "Gravitational constant (Constant N·m²/kg²)",
+         M: "Source mass (Mass kg)",
+         r: "Distance from source mass (Length m)",
+      },
       topic: "Gravitation",
    },
    {
@@ -608,7 +864,13 @@ const en = [
       description: "Calculates the gravitational potential energy of a system of two point masses.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         U_g: "Gravitational potential energy (Energy J)",
+         G: "Gravitational constant (Constant N·m²/kg²)",
+         m1: "Mass 1 (Mass kg)",
+         m2: "Mass 2 (Mass kg)",
+         r: "Distance between masses (Length m)",
+      },
       topic: "Gravitation",
    },
    {
@@ -619,7 +881,12 @@ const en = [
       description: "Calculates the gravitational potential at a distance from a point mass.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         V_g: "Gravitational potential (Gravitational Potential J/kg)",
+         G: "Gravitational constant (Constant N·m²/kg²)",
+         M: "Source mass (Mass kg)",
+         r: "Distance from source mass (Length m)",
+      },
       topic: "Gravitation",
    },
    {
@@ -630,7 +897,12 @@ const en = [
       description: "Calculates the speed of an object in a circular orbit around a larger mass.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         v_orbit: "Orbital speed (Speed m/s)",
+         G: "Gravitational constant (Constant N·m²/kg²)",
+         M: "Mass of central body (Mass kg)",
+         r: "Orbital radius (Length m)",
+      },
       topic: "Gravitation",
    },
    {
@@ -642,7 +914,12 @@ const en = [
          "Calculates the minimum speed needed to escape the gravitational pull of a mass from a given distance.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         v_escape: "Escape speed (Speed m/s)",
+         G: "Gravitational constant (Constant N·m²/kg²)",
+         M: "Mass of central body (Mass kg)",
+         r: "Distance from center (Length m)",
+      },
       topic: "Gravitation",
    },
    {
@@ -654,7 +931,13 @@ const en = [
          "Calculates the rate of heat transfer by conduction through a material. Note- The function calculates Q, assuming a time interval is implied by the equation's usual use for rate. Documentation states Q, but the equation is typically for Q/t. Clarifying this difference. The function returns the result of the right side of the rate equation.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         "Q/t": "Heat transfer rate (Power W)",
+         k: "Thermal conductivity (Thermal Conductivity W/(m·K))",
+         A: "Area (Area m²)",
+         ΔT: "Temperature difference (Temperature Difference K)",
+         d: "Thickness (Length m)",
+      },
       topic: "Thermal Physics / Thermodynamics",
    },
    {
@@ -665,7 +948,14 @@ const en = [
       description: "Calculates the net rate of energy radiated by an object, considering its surroundings.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         P: "Net radiated power (Power W)",
+         ε: "Emissivity (Dimensionless)",
+         σ: "Stefan-Boltzmann constant (Constant W/(m²·K⁴))",
+         A: "Surface area (Area m²)",
+         T: "Object temperature (Temperature K)",
+         T0: "Surrounding temperature (Temperature K)",
+      },
       topic: "Thermal Physics / Thermodynamics",
    },
    {
@@ -676,7 +966,11 @@ const en = [
       description: "Calculates the wavelength at which the emission spectrum of a black body is maximum.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         λ_max: "Wavelength of peak emission (Length m)",
+         b: "Wien's displacement constant (Constant m·K)",
+         T: "Temperature (Temperature K)",
+      },
       topic: "Thermal Physics / Thermodynamics",
    },
    {
@@ -688,7 +982,11 @@ const en = [
          "Calculates the frequency at which the emission spectrum of a black body is maximum. Note- This version uses a modified Wien's constant b'.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         f_max: "Frequency of peak emission (Frequency Hz)",
+         "b'": "Modified Wien's constant (Constant Hz/K)",
+         T: "Temperature (Temperature K)",
+      },
       topic: "Thermal Physics / Thermodynamics",
    },
    {
@@ -722,7 +1020,11 @@ const en = [
       description: "Calculates velocity based on displacement and time (v = Δs / Δt).",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         v: "Velocity (Velocity m/s)",
+         Δx: "Displacement (Length m)",
+         Δt: "Time interval (Time s)",
+      },
       topic: "Mechanics",
    },
    {
@@ -733,7 +1035,11 @@ const en = [
       description: "Calculates acceleration based on change in velocity and time (a = Δv / Δt).",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         a: "Acceleration (Acceleration m/s²)",
+         Δv: "Change in velocity (Velocity m/s)",
+         Δt: "Time interval (Time s)",
+      },
       topic: "Mechanics",
    },
    {
@@ -744,7 +1050,12 @@ const en = [
       description: "Calculates final velocity using the first kinematic equation.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         v: "Final velocity (Velocity m/s)",
+         v0: "Initial velocity (Velocity m/s)",
+         a: "Acceleration (Acceleration m/s²)",
+         t: "Time (Time s)",
+      },
       topic: "Mechanics",
    },
    {
@@ -755,7 +1066,13 @@ const en = [
       description: "Calculates final position using the second kinematic equation.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         s: "Final position (Length m)",
+         s0: "Initial position (Length m)",
+         v0: "Initial velocity (Velocity m/s)",
+         t: "Time (Time s)",
+         a: "Acceleration (Acceleration m/s²)",
+      },
       topic: "Mechanics",
    },
    {
@@ -766,7 +1083,12 @@ const en = [
       description: "Calculates final velocity squared using the third kinematic equation. Note- returns v^2, not v.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         v: "Final velocity (Velocity m/s)",
+         v0: "Initial velocity (Velocity m/s)",
+         a: "Acceleration (Acceleration m/s²)",
+         Δs: "Displacement (Length m)",
+      },
       topic: "Mechanics",
    },
    {
@@ -777,7 +1099,11 @@ const en = [
       description: "Calculates average velocity assuming constant acceleration.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         v_avg: "Average velocity (Velocity m/s)",
+         v: "Final velocity (Velocity m/s)",
+         v0: "Initial velocity (Velocity m/s)",
+      },
       topic: "Mechanics",
    },
    {
@@ -788,7 +1114,11 @@ const en = [
       description: "Calculates force using Newton's second law.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         F_net: "Net force (Force N)",
+         m: "Mass (Mass kg)",
+         a: "Acceleration (Acceleration m/s²)",
+      },
       topic: "Mechanics",
    },
    {
@@ -799,7 +1129,11 @@ const en = [
       description: "Calculates the force of gravity on an object.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         W: "Weight (Force N)",
+         m: "Mass (Mass kg)",
+         g: "Acceleration due to gravity (Acceleration m/s²)",
+      },
       topic: "Mechanics",
    },
    {
@@ -810,7 +1144,11 @@ const en = [
       description: "Calculates the maximum possible static friction force.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         f_s_max: "Maximum static friction force (Force N)",
+         μ_s: "Coefficient of static friction (Dimensionless)",
+         F_N: "Normal force (Force N)",
+      },
       topic: "Mechanics",
    },
    {
@@ -821,7 +1159,11 @@ const en = [
       description: "Calculates the kinetic friction force acting on a moving object.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         f_k: "Kinetic friction force (Force N)",
+         μ_k: "Coefficient of kinetic friction (Dimensionless)",
+         F_N: "Normal force (Force N)",
+      },
       topic: "Mechanics",
    },
    {
@@ -832,7 +1174,11 @@ const en = [
       description: "Calculates linear momentum of an object.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         p: "Momentum (Momentum kg·m/s)",
+         m: "Mass (Mass kg)",
+         v: "Velocity (Velocity m/s)",
+      },
       topic: "Momentum",
    },
    {
@@ -843,7 +1189,11 @@ const en = [
       description: "Calculates impulse from force and time interval.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         J: "Impulse (Impulse N·s)",
+         F_avg: "Average force (Force N)",
+         Δt: "Time interval (Time s)",
+      },
       topic: "Momentum",
    },
    {
@@ -854,7 +1204,14 @@ const en = [
       description: "Checks if impulse equals change in momentum for given values. Returns boolean.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         J: "Impulse (Impulse N·s)",
+         Δp: "Change in momentum (Momentum kg·m/s)",
+         F: "Force (Force N)",
+         Δt: "Time interval (Time s)",
+         m: "Mass (Mass kg)",
+         Δv: "Change in velocity (Velocity m/s)",
+      },
       topic: "Momentum",
    },
    {
@@ -866,7 +1223,11 @@ const en = [
          "Calculates the average activity (rate of decay) of a radioactive sample over a time interval. Note- Function uses `nValue` for number of nuclei ΔN and `tValue` for time Δt. This is a simplified average over Δt, instantaneous activity is dN/dt = -λN.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         A_avg: "Average radioactive activity (Activity Bq)",
+         ΔN: "Number of decays (Number dimensionless)",
+         Δt: "Time interval (Time s)",
+      },
       topic: "Nuclear Physics",
    },
    {
@@ -878,7 +1239,12 @@ const en = [
          "Calculates the remaining quantity of a substance after a time based on its half-life. Note- Uses `tValue` for time and `Thalf` for half-life.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         N: "Remaining quantity/nuclei (Number)",
+         N0: "Initial quantity/nuclei (Number)",
+         t: "Time elapsed (Time s)",
+         T_half: "Half-life (Time s)",
+      },
       topic: "Nuclear Physics",
    },
    {
@@ -890,7 +1256,11 @@ const en = [
          "Calculates the absorbed dose of radiation based on the energy absorbed by a mass. Note- Uses `EValue` for energy and `mValue` for mass.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         D: "Absorbed dose (Absorbed Dose Gy)",
+         E: "Energy absorbed (Energy J)",
+         m: "Mass (Mass kg)",
+      },
       topic: "Nuclear Physics",
    },
    {
@@ -902,7 +1272,11 @@ const en = [
          "Calculates the equivalent dose, accounting for the biological effectiveness of different types of radiation. Note- Uses `DValue` for absorbed dose.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         H: "Equivalent dose (Equivalent Dose Sv)",
+         D: "Absorbed dose (Absorbed Dose Gy)",
+         W_R: "Radiation weighting factor (Dimensionless)",
+      },
       topic: "Nuclear Physics",
    },
    {
@@ -914,7 +1288,11 @@ const en = [
          "Calculates the effective dose, accounting for the sensitivity of different tissues/organs to radiation. Note- Uses `HValue` for equivalent dose.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         E: "Effective dose (Effective Dose Sv)",
+         H_T: "Equivalent dose for tissue/organ T (Equivalent Dose Sv)",
+         W_T: "Tissue weighting factor for tissue/organ T (Dimensionless)",
+      },
       topic: "Nuclear Physics",
    },
    {
@@ -926,7 +1304,12 @@ const en = [
          "Calculates the angle of the Cherenkov cone formed by a charged particle moving faster than the speed of light in a medium. Returns angle in radians.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         θ_C: "Cherenkov angle (Angle rad)",
+         c: "Speed of light in vacuum (Speed m/s)",
+         n: "Refractive index of medium (Dimensionless)",
+         v: "Particle speed (Speed m/s)",
+      },
       topic: "Optics",
    },
    {
@@ -937,7 +1320,13 @@ const en = [
       description: "Calculates the position of the nth bright fringe in a Young's double-slit interference pattern.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         y_n: "Position of the nth bright fringe (Length m)",
+         n: "Fringe order (Integer dimensionless)",
+         λ: "Wavelength (Length m)",
+         L: "Distance to screen (Length m)",
+         d: "Slit separation (Length m)",
+      },
       topic: "Optics",
    },
    {
@@ -949,7 +1338,11 @@ const en = [
          "Calculates the refractive index of a medium based on the speed of light in vacuum and in the medium.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         n: "Index of refraction (Dimensionless)",
+         c: "Speed of light in vacuum (Speed m/s)",
+         v: "Speed of light in medium (Speed m/s)",
+      },
       topic: "Optics",
    },
    {
@@ -961,7 +1354,12 @@ const en = [
          "Checks if Snell's Law holds for light passing between two media with given refractive indices and angles. Returns boolean. Angles should be in radians. Note- Uses strict equality (===) which may be sensitive to floating-point precision; consider tolerance for real-world checks.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         n1: "Index of refraction of medium 1 (Dimensionless)",
+         θ1: "Angle in medium 1 (Angle rad)",
+         n2: "Index of refraction of medium 2 (Dimensionless)",
+         θ2: "Angle in medium 2 (Angle rad)",
+      },
       topic: "Optics",
    },
    {
@@ -973,7 +1371,11 @@ const en = [
          "Calculates the critical angle for total internal reflection when light goes from a medium with index n1 to n2 (n1 > n2). Returns angle in radians.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         θ_c: "Critical angle (Angle rad)",
+         n1: "Index of refraction of medium 1 (Dimensionless)",
+         n2: "Index of refraction of medium 2 (Dimensionless)",
+      },
       topic: "Optics",
    },
    {
@@ -985,19 +1387,29 @@ const en = [
          "Checks if the relationship between focal length, object distance, and image distance holds true. Returns boolean. Note- Uses strict equality (===) which may be sensitive to floating-point precision; consider tolerance for real-world checks.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         f: "Focal length (Length m)",
+         d_o: "Object distance (Length m)",
+         d_i: "Image distance (Length m)",
+      },
       topic: "Optics",
    },
    {
       equation_id: "image-size",
       name: "Image Size (Magnification - Optics)",
       equation_text: "M = h_i / h_o = -d_i / d_o",
-      summary: "Validates magnification equation (h'/h = -di/do) (Function uses h'/h = di/do)",
+      summary: "Validates magnification equation (h'/h = di/do) (Function uses h'/h = di/do)",
       description:
          "Checks if the relationship between object/image heights and distances holds true. Returns boolean. Note- Uses strict equality (===) which may be sensitive to floating-point precision. The function uses the magnitude relationship `h'/h = di/do` rather than the signed magnification equation. Documenting based on function implementation. Consider tolerance for real-world checks.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         M: "Magnification (Dimensionless)",
+         h_i: "Image height (Length m)",
+         h_o: "Object height (Length m)",
+         d_i: "Image distance (Length m)",
+         d_o: "Object distance (Length m)",
+      },
       topic: "Optics",
    },
    {
@@ -1008,7 +1420,10 @@ const en = [
       description: "Calculates the focal length of a spherical mirror based on its radius of curvature.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         f: "Focal length (Length m)",
+         r: "Radius of curvature (Length m)",
+      },
       topic: "Optics",
    },
    {
@@ -1019,7 +1434,11 @@ const en = [
       description: "Calculates the elastic potential energy stored in an ideal spring.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         U_s: "Spring potential energy (Energy J)",
+         k: "Spring constant (Spring Constant N/m)",
+         x: "Displacement from equilibrium (Length m)",
+      },
       topic: "Oscillations And Waves",
    },
    {
@@ -1031,7 +1450,12 @@ const en = [
          "Calculates the period of oscillation for a simple harmonic oscillator consisting of a mass on a spring.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         T: "Period (Time s)",
+         π: "Pi (Constant dimensionless)",
+         m: "Mass (Mass kg)",
+         k: "Spring constant (Spring Constant N/m)",
+      },
       topic: "Oscillations And Waves",
    },
    {
@@ -1042,7 +1466,12 @@ const en = [
       description: "Calculates the period of oscillation for a simple pendulum at small angles.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         T: "Period (Time s)",
+         π: "Pi (Constant dimensionless)",
+         L: "Length of pendulum (Length m)",
+         g: "Acceleration due to gravity (Acceleration m/s²)",
+      },
       topic: "Oscillations And Waves",
    },
    {
@@ -1053,7 +1482,10 @@ const en = [
       description: "Calculates frequency from the period of oscillation.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         f: "Frequency (Frequency Hz)",
+         T: "Period (Time s)",
+      },
       topic: "Oscillations And Waves",
    },
    {
@@ -1064,7 +1496,11 @@ const en = [
       description: "Calculates angular frequency from frequency.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         ω: "Angular frequency (Angular Velocity rad/s)",
+         π: "Pi (Constant dimensionless)",
+         f: "Frequency (Frequency Hz)",
+      },
       topic: "Oscillations And Waves",
    },
    {
@@ -1075,7 +1511,11 @@ const en = [
       description: "Calculates the Lorentz factor using γ = 1/√(1 - (v²/c²)). Requires v < c.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         γ: "Lorentz factor (Dimensionless)",
+         v: "Velocity (Speed m/s)",
+         c: "Speed of light in vacuum (Speed m/s)",
+      },
       topic: "Relativity And Quantum",
    },
    {
@@ -1087,7 +1527,12 @@ const en = [
          "Calculates the time elapsed (t') for an observer in an inertial frame S, given the proper time (t₀) measured in a moving frame S' and the relative velocity (v) between S and S'. Uses t' = t₀ / √(1 - (v²/c²)). Requires t₀ ≥ 0 and |v| ≤ c. Units of t' will be the same as t₀, units of v and c must be consistent.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         Δt: "Dilated time (Time s)",
+         Δt0: "Proper time (Time s)",
+         v: "Relative velocity (Speed m/s)",
+         c: "Speed of light in vacuum (Speed m/s)",
+      },
       topic: "Relativity And Quantum",
    },
    {
@@ -1099,7 +1544,12 @@ const en = [
          "Calculates the length (L') of an object observed from a moving frame S', given its proper length (L₀) measured in its rest frame S and the relative velocity (v) between S and S'. Uses L' = L₀ * √(1 - (v²/c²)). Requires L₀ ≥ 0 and |v| ≤ c. Units of L' will be the same as L₀, units of v and c must be consistent.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         L: "Contracted length (Length m)",
+         L0: "Proper length (Length m)",
+         v: "Relative velocity (Speed m/s)",
+         c: "Speed of light in vacuum (Speed m/s)",
+      },
       topic: "Relativity And Quantum",
    },
    {
@@ -1111,7 +1561,12 @@ const en = [
          "Calculates the velocity (u') of an object relative to a frame S', given its velocity (u) relative to a frame S, and the velocity (v) of frame S relative to frame S'. Uses the equation u' = (u + v) / (1 + uv/c²). Assumes motion along the same line. Requires c ≠ 0. Units of u, v, and c must be consistent.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         u: "Velocity of object in frame S (Velocity m/s)",
+         v: "Velocity of frame S relative to S' (Velocity m/s)",
+         c: "Speed of light in vacuum (Speed m/s)",
+         "u'": "Velocity of object relative to frame S' (Velocity m/s)",
+      },
       topic: "Relativity And Quantum",
    },
    {
@@ -1123,7 +1578,12 @@ const en = [
          "Calculates the total relativistic energy of a particle with rest mass (m) moving at velocity (v). Uses the equation E = γmc² = mc² / √(1 - (v²/c²)). Primarily for particles with rest mass (m > 0). Requires m ≥ 0 and |v| ≤ c. Units of m, v, and c must be consistent to yield energy in appropriate units (e.g., m in kg, v/c in m/s gives E in Joules).",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         E: "Total relativistic energy (Energy J)",
+         m: "Rest mass (Mass kg)",
+         v: "Velocity (Speed m/s)",
+         c: "Speed of light in vacuum (Speed m/s)",
+      },
       topic: "Relativity And Quantum",
    },
    {
@@ -1135,7 +1595,12 @@ const en = [
          "Calculates the relativistic momentum of a particle with rest mass (m) moving at velocity (v). Uses the equation p = γmv = mv / √(1 - (v²/c²)). Primarily for particles with rest mass (m > 0). Requires m ≥ 0 and |v| ≤ c. Units of m, v, and c must be consistent to yield momentum in appropriate units (e.g., m in kg, v in m/s, c in m/s gives p in kg·m/s).",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         p: "Relativistic momentum (Momentum kg·m/s)",
+         m: "Rest mass (Mass kg)",
+         v: "Velocity (Speed m/s)",
+         c: "Speed of light in vacuum (Speed m/s)",
+      },
       topic: "Relativity And Quantum",
    },
    {
@@ -1147,7 +1612,12 @@ const en = [
          "Calculates the total relativistic energy of a particle from its relativistic momentum (p) and rest mass (m). Uses the energy-momentum relation: E² = (pc)² + (mc²)². This equation is valid for both massive (m > 0) and massless (m = 0) particles. Requires p ≥ 0, m ≥ 0, and c > 0. Units of p, m, and c must be consistent.\n",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         E: "Total relativistic energy (Energy J)",
+         p: "Relativistic momentum (Momentum kg·m/s)",
+         c: "Speed of light in vacuum (Speed m/s)",
+         m: "Rest mass (Mass kg)",
+      },
       topic: "Relativity And Quantum",
    },
    {
@@ -1159,7 +1629,11 @@ const en = [
          "Calculates the rest energy (E₀) equivalent of a given rest mass (m) using Einstein's famous equation E₀ = mc². Requires m ≥ 0 and c > 0. Units of m and c must be consistent (e.g., m in kg, c in m/s gives E₀ in Joules). This endpoint uses a standard value for c (approx 299792458 m/s) unless 'c' is explicitly provided.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         E0: "Rest energy (Energy J)",
+         m: "Rest mass (Mass kg)",
+         c: "Speed of light in vacuum (Speed m/s)",
+      },
       topic: "Relativity And Quantum",
    },
    {
@@ -1171,7 +1645,12 @@ const en = [
          "Calculates the relativistic kinetic energy of a particle with rest mass (m) moving at velocity (v). Uses the equation KE = (γ - 1)mc² = (1/√(1 - (v²/c²)) - 1)mc². Primarily for particles with rest mass (m > 0). Requires m ≥ 0 and |v| < c. Units of m, v, and c must be consistent to yield energy in appropriate units.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         KE: "Relativistic kinetic energy (Energy J)",
+         m: "Rest mass (Mass kg)",
+         v: "Velocity (Speed m/s)",
+         c: "Speed of light in vacuum (Speed m/s)",
+      },
       topic: "Relativity And Quantum",
    },
    {
@@ -1183,7 +1662,12 @@ const en = [
          "Calculates the observed wavelength (λ') of light emitted with proper wavelength (λ₀) from a source moving with relative velocity (v_rel) directly away from or towards the observer. Uses the equation λ' = λ₀√((1 + β)/(1 - β)), where β = v_rel/c. v_rel > 0 for recession (redshift), v_rel < 0 for approach (blueshift). Requires λ₀ > 0 and |v_rel| < c. Units of λ' will be the same as λ₀, units of v_rel and c must be consistent.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         "λ'": "Observed wavelength (Length m)",
+         λ0: "Proper wavelength (Length m)",
+         v: "Relative velocity (Speed m/s)",
+         c: "Speed of light in vacuum (Speed m/s)",
+      },
       topic: "Relativity And Quantum",
    },
    {
@@ -1195,7 +1679,11 @@ const en = [
          "Calculates the energy (E) of a photon based on its frequency (f). Uses Planck's relation E = hf. Requires f ≥ 0 and h > 0. Units of h and f must be consistent to yield energy in appropriate units (e.g., h in J·s, f in Hz (s⁻¹) gives E in Joules). This endpoint uses a standard value for h (approx 6.626e-34 J·s) unless 'h' is explicitly provided.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         E: "Photon energy (Energy J)",
+         h: "Planck constant (Constant J·s)",
+         f: "Frequency (Frequency Hz)",
+      },
       topic: "Relativity And Quantum",
    },
    {
@@ -1207,7 +1695,11 @@ const en = [
          "Calculates the momentum (p) of a photon based on its wavelength (λ). Uses the relation p = h/λ. Requires λ > 0 and h > 0. Units of h and λ must be consistent to yield momentum in appropriate units (e.g., h in J·s, λ in meters gives p in kg·m/s). This endpoint uses a standard value for h (approx 6.626e-34 J·s) unless 'h' is explicitly provided.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         p: "Photon momentum (Momentum kg·m/s)",
+         h: "Planck constant (Constant J·s)",
+         λ: "Wavelength (Length m)",
+      },
       topic: "Relativity And Quantum",
    },
    {
@@ -1219,7 +1711,11 @@ const en = [
          "Calculates the maximum kinetic energy (KE_max) of emitted electrons in the photoelectric effect. Uses the equation KE_max = E_photon - φ, where E_photon is the incoming photon energy and φ is the work function of the material. If E_photon ≤ φ, no electrons are emitted, and KE_max is 0. Requires E_photon ≥ 0 and φ ≥ 0. Units of E_photon and φ must be consistent to yield KE_max in the same units.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         KE_max: "Maximum electron kinetic energy (Energy J)",
+         E_photon: "Photon energy (Energy J)",
+         φ: "Work function (Energy J)",
+      },
       topic: "Relativity And Quantum",
    },
    {
@@ -1231,7 +1727,13 @@ const en = [
          "Calculates the energy difference (ΔE) or wavenumber (1/λ) for an electron transition between two energy levels in a hydrogen-like atom (Z). Uses the equation Result = Constant * Z² * (1/n_initial² - 1/n_final²). If 'Constant' is the Rydberg energy unit (e.g., in eV), the result is the energy difference E_final - E_initial (positive for absorption, negative for emission). If 'Constant' is the Rydberg constant for wavenumber (e.g., in m⁻¹), the result is the wavenumber 1/λ (positive for emission, negative for absorption). Requires nInitial > 0, nFinal > 0, nInitial ≠ nFinal, Z > 0 (integers), and Constant > 0.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         ΔE: "Energy difference (Energy J)",
+         R_y: "Rydberg constant (Constant J or inverse Length m⁻¹)",
+         Z: "Atomic number (Integer dimensionless)",
+         n1: "Initial principal quantum number (Integer dimensionless)",
+         n2: "Final principal quantum number (Integer dimensionless)",
+      },
       topic: "Relativity And Quantum",
    },
    {
@@ -1242,7 +1744,11 @@ const en = [
       description: "Calculates angular velocity based on change in angle and time.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         ω: "Angular velocity (Angular Velocity rad/s)",
+         Δθ: "Angular displacement (Angle rad)",
+         Δt: "Time interval (Time s)",
+      },
       topic: "Rotational Motion",
    },
    {
@@ -1253,7 +1759,11 @@ const en = [
       description: "Calculates angular acceleration based on change in angular velocity and time.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         α: "Angular acceleration (Angular Acceleration rad/s²)",
+         Δω: "Change in angular velocity (Angular Velocity rad/s)",
+         Δt: "Time interval (Time s)",
+      },
       topic: "Rotational Motion",
    },
    {
@@ -1264,7 +1774,12 @@ const en = [
       description: "Calculates final angular velocity using rotational kinematic equation.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         ω: "Final angular velocity (Angular Velocity rad/s)",
+         ω0: "Initial angular velocity (Angular Velocity rad/s)",
+         α: "Angular acceleration (Angular Acceleration rad/s²)",
+         t: "Time (Time s)",
+      },
       topic: "Rotational Motion",
    },
    {
@@ -1275,7 +1790,13 @@ const en = [
       description: "Calculates final angular position using rotational kinematic equation.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         θ: "Final angular position (Angle rad)",
+         θ0: "Initial angular position (Angle rad)",
+         ω0: "Initial angular velocity (Angular Velocity rad/s)",
+         t: "Time (Time s)",
+         α: "Angular acceleration (Angular Acceleration rad/s²)",
+      },
       topic: "Rotational Motion",
    },
    {
@@ -1287,7 +1808,12 @@ const en = [
          "Calculates final angular velocity squared using rotational kinematic equation. Note- returns ω^2, not ω.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         ω: "Final angular velocity (Angular Velocity rad/s)",
+         ω0: "Initial angular velocity (Angular Velocity rad/s)",
+         α: "Angular acceleration (Angular Acceleration rad/s²)",
+         Δθ: "Angular displacement (Angle rad)",
+      },
       topic: "Rotational Motion",
    },
    {
@@ -1298,7 +1824,11 @@ const en = [
       description: "Calculates average angular velocity assuming constant angular acceleration.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         ω_avg: "Average angular velocity (Angular Velocity rad/s)",
+         ω: "Final angular velocity (Angular Velocity rad/s)",
+         ω0: "Initial angular velocity (Angular Velocity rad/s)",
+      },
       topic: "Rotational Motion",
    },
    {
@@ -1309,7 +1839,12 @@ const en = [
       description: "Calculates torque based on radius, force, and the angle between them.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         τ: "Torque (Torque N·m)",
+         r: "Lever arm (Length m)",
+         F: "Force (Force N)",
+         θ: "Angle between force and lever arm (Angle rad)",
+      },
       topic: "Rotational Motion",
    },
    {
@@ -1320,7 +1855,11 @@ const en = [
       description: "Calculates torque based on moment of inertia and angular acceleration.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         τ_net: "Net torque (Torque N·m)",
+         I: "Moment of inertia (Moment of Inertia kg·m²)",
+         α: "Angular acceleration (Angular Acceleration rad/s²)",
+      },
       topic: "Rotational Motion",
    },
    {
@@ -1331,7 +1870,11 @@ const en = [
       description: "Calculates the moment of inertia for a single point mass relative to an axis.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         I: "Moment of inertia (Moment of Inertia kg·m²)",
+         m: "Mass (Mass kg)",
+         r: "Distance from axis (Length m)",
+      },
       topic: "Rotational Motion",
    },
    {
@@ -1342,7 +1885,11 @@ const en = [
       description: "Calculates the work done by a constant torque over an angular displacement.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         W: "Rotational work (Energy J)",
+         τ: "Torque (Torque N·m)",
+         Δθ: "Angular displacement (Angle rad)",
+      },
       topic: "Rotational Motion",
    },
    {
@@ -1354,7 +1901,12 @@ const en = [
          "Calculates instantaneous rotational power based on torque, angular velocity, and the angle between them.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         P: "Rotational power (Power W)",
+         τ: "Torque (Torque N·m)",
+         ω: "Angular velocity (Angular Velocity rad/s)",
+         θ: "Angle between torque and angular velocity (Angle rad)",
+      },
       topic: "Rotational Motion",
    },
    {
@@ -1365,7 +1917,11 @@ const en = [
       description: "Calculates the kinetic energy of a rotating object.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         KE_rot: "Rotational kinetic energy (Energy J)",
+         I: "Moment of inertia (Moment of Inertia kg·m²)",
+         ω: "Angular velocity (Angular Velocity rad/s)",
+      },
       topic: "Rotational Motion",
    },
    {
@@ -1376,7 +1932,13 @@ const en = [
       description: "Calculates angular momentum for a point mass moving relative to a point.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         L: "Angular momentum (Angular Momentum kg·m²/s)",
+         m: "Mass (Mass kg)",
+         r: "Distance from axis/point (Length m)",
+         v: "Velocity (Speed m/s)",
+         θ: "Angle between radius vector and velocity (Angle rad)",
+      },
       topic: "Rotational Motion",
    },
    {
@@ -1387,7 +1949,11 @@ const en = [
       description: "Calculates angular impulse from torque and time interval.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         J_angular: "Angular impulse (Angular Impulse N·m·s)",
+         τ_avg: "Average torque (Torque N·m)",
+         Δt: "Time interval (Time s)",
+      },
       topic: "Rotational Motion",
    },
    {
@@ -1398,7 +1964,13 @@ const en = [
       description: "Calculates Young's Modulus (elastic modulus) of a material under tensile or compressive stress.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         E: "Young's Modulus (Pressure Pa)",
+         F: "Force (Force N)",
+         L0: "Original length (Length m)",
+         A: "Cross-sectional area (Area m²)",
+         ΔL: "Change in length (Length m)",
+      },
       topic: "Solid Mechanics",
    },
    {
@@ -1409,7 +1981,13 @@ const en = [
       description: "Calculates the shear modulus (modulus of rigidity) of a material under shear stress.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         G: "Shear modulus (Pressure Pa)",
+         F: "Force (Force N)",
+         y: "Distance perpendicular to force (Length m)",
+         A: "Area (Area m²)",
+         Δx: "Displacement (Length m)",
+      },
       topic: "Solid Mechanics",
    },
    {
@@ -1420,7 +1998,12 @@ const en = [
       description: "Calculates the bulk modulus of a material under uniform pressure (hydrostatic stress).",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         K: "Bulk modulus (Pressure Pa)",
+         ΔP: "Change in pressure (Pressure Pa)",
+         ΔV: "Change in volume (Volume m³)",
+         V0: "Original volume (Volume m³)",
+      },
       topic: "Solid Mechanics",
    },
    {
@@ -1432,7 +2015,11 @@ const en = [
          "Calculates the restoring force exerted by an ideal spring according to Hooke's Law. Note - returns a negative value indicating the force opposes displacement.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         F: "Force (Force N)",
+         k: "Spring constant (Spring Constant N/m)",
+         x: "Displacement from equilibrium (Length m)",
+      },
       topic: "Solid Mechanics",
    },
    {
@@ -1443,7 +2030,12 @@ const en = [
       description: "Calculates the change in length of a solid material due to a temperature change.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         ΔL: "Change in length (Length m)",
+         α: "Coefficient of linear expansion (Coefficient per Temperature K⁻¹)",
+         L0: "Original length (Length m)",
+         ΔT: "Change in temperature (Temperature Difference K)",
+      },
       topic: "Thermal Physics / Thermodynamics",
    },
    {
@@ -1455,7 +2047,12 @@ const en = [
          "Calculates the change in area of a solid material due to a temperature change, using the linear expansion coefficient.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         ΔA: "Change in area (Area m²)",
+         α: "Coefficient of linear expansion (Coefficient per Temperature K⁻¹)",
+         A0: "Original area (Area m²)",
+         ΔT: "Change in temperature (Temperature Difference K)",
+      },
       topic: "Thermal Physics / Thermodynamics",
    },
    {
@@ -1467,7 +2064,12 @@ const en = [
          "Calculates the change in volume of a solid material due to a temperature change, using the linear expansion coefficient.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         ΔV: "Change in volume (Volume m³)",
+         α: "Coefficient of linear expansion (Coefficient per Temperature K⁻¹)",
+         V0: "Original volume (Volume m³)",
+         ΔT: "Change in temperature (Temperature Difference K)",
+      },
       topic: "Thermal Physics / Thermodynamics",
    },
    {
@@ -1478,7 +2080,12 @@ const en = [
       description: "Calculates the change in volume of a liquid due to a temperature change.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         ΔV: "Change in volume (Volume m³)",
+         β: "Coefficient of volume expansion (Coefficient per Temperature K⁻¹)",
+         V0: "Original volume (Volume m³)",
+         ΔT: "Change in temperature (Temperature Difference K)",
+      },
       topic: "Thermal Physics / Thermodynamics",
    },
    {
@@ -1489,7 +2096,12 @@ const en = [
       description: "Calculates the heat transferred causing a change in temperature of a substance.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         Q: "Sensible heat (Energy J)",
+         m: "Mass (Mass kg)",
+         c: "Specific heat capacity (Specific Heat Capacity J/(kg·K))",
+         ΔT: "Change in temperature (Temperature Difference K)",
+      },
       topic: "Thermal Physics / Thermodynamics",
    },
    {
@@ -1500,7 +2112,11 @@ const en = [
       description: "Calculates the heat transferred during a phase change of a substance.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         Q: "Latent heat (Energy J)",
+         m: "Mass (Mass kg)",
+         L: "Latent heat (Specific Energy J/kg)",
+      },
       topic: "Thermal Physics / Thermodynamics",
    },
    {
@@ -1512,7 +2128,13 @@ const en = [
          "Checks if the Ideal Gas Law equation holds true for the given parameters. Returns boolean. Note- Uses strict equality (===) which may be sensitive to floating-point precision; consider tolerance for real-world checks.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         P: "Pressure (Pressure Pa)",
+         V: "Volume (Volume m³)",
+         n: "Number of moles (Amount of Substance mol)",
+         R: "Ideal gas constant (Constant J/(mol·K))",
+         T: "Temperature (Temperature K)",
+      },
       topic: "Thermal Physics / Thermodynamics",
    },
    {
@@ -1523,7 +2145,11 @@ const en = [
       description: "Calculates the average translational kinetic energy per molecule of an ideal gas.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         KE_avg: "Average molecular kinetic energy (Energy J)",
+         k: "Boltzmann constant (Constant J/K)",
+         T: "Temperature (Temperature K)",
+      },
       topic: "Thermal Physics / Thermodynamics",
    },
    {
@@ -1535,7 +2161,12 @@ const en = [
          "Calculates the most probable speed of molecules in an ideal gas according to the Maxwell-Boltzmann distribution.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         v_p: "Most probable molecular speed (Speed m/s)",
+         k: "Boltzmann constant (Constant J/K)",
+         T: "Temperature (Temperature K)",
+         m: "Mass of a single molecule (Mass kg)",
+      },
       topic: "Thermal Physics / Thermodynamics",
    },
    {
@@ -1547,7 +2178,13 @@ const en = [
          "Calculates the average speed of molecules in an ideal gas according to the Maxwell-Boltzmann distribution.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         v_avg: "Average molecular speed (Speed m/s)",
+         k: "Boltzmann constant (Constant J/K)",
+         T: "Temperature (Temperature K)",
+         π: "Pi (Constant dimensionless)",
+         m: "Mass of a single molecule (Mass kg)",
+      },
       topic: "Thermal Physics / Thermodynamics",
    },
    {
@@ -1559,7 +2196,12 @@ const en = [
          "Calculates the root mean square speed of molecules in an ideal gas according to the Maxwell-Boltzmann distribution.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         v_rms: "Root mean square molecular speed (Speed m/s)",
+         k: "Boltzmann constant (Constant J/K)",
+         T: "Temperature (Temperature K)",
+         m: "Mass of a single molecule (Mass kg)",
+      },
       topic: "Thermal Physics / Thermodynamics",
    },
    {
@@ -1571,7 +2213,12 @@ const en = [
          "Calculates the change in internal energy for a monatomic ideal gas undergoing a temperature change.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         ΔU: "Change in internal energy (Energy J)",
+         n: "Number of moles (Amount of Substance mol)",
+         R: "Ideal gas constant (Constant J/(mol·K))",
+         ΔT: "Change in temperature (Temperature Difference K)",
+      },
       topic: "Thermal Physics / Thermodynamics",
    },
    {
@@ -1583,7 +2230,11 @@ const en = [
          "Calculates the work done by or on a system during a thermodynamic process at constant pressure. Note- Equation calculates work *done by* the system, positive for expansion, negative for compression. Function returns -P*deltaV, consistent with work *done by* the system according to the equation W = PΔV, with an added negative sign which may imply work *done on* the system depending on convention. Documenting the function's output.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         W: "Thermodynamic work (Energy J)",
+         P: "Pressure (Pressure Pa)",
+         ΔV: "Change in volume (Volume m³)",
+      },
       topic: "Thermodynamics",
    },
    {
@@ -1594,7 +2245,11 @@ const en = [
       description: "Calculates the thermal efficiency of a heat engine based on heat absorbed and rejected.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         η: "Efficiency (Dimensionless)",
+         Q_H: "Heat absorbed from hot reservoir (Energy J)",
+         Q_C: "Heat rejected to cold reservoir (Energy J)",
+      },
       topic: "Thermodynamics",
    },
    {
@@ -1606,7 +2261,11 @@ const en = [
          "Calculates the maximum theoretical efficiency of a heat engine operating between two temperatures (Carnot efficiency).",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         η_ideal: "Ideal efficiency (Dimensionless)",
+         T_hot: "Temperature of hot reservoir (Temperature K)",
+         T_cold: "Temperature of cold reservoir (Temperature K)",
+      },
       topic: "Thermodynamics",
    },
    {
@@ -1617,7 +2276,11 @@ const en = [
       description: "Calculates the coefficient of performance for a real refrigerator or heat pump.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         COP_real: "Coefficient of performance (Dimensionless)",
+         Q_C: "Heat from cold reservoir (Energy J)",
+         Q_H: "Heat to hot reservoir (Energy J)",
+      },
       topic: "Thermodynamics",
    },
    {
@@ -1629,7 +2292,11 @@ const en = [
          "Calculates the maximum theoretical coefficient of performance for a refrigerator or heat pump operating between two temperatures.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         COP_ideal: "Ideal coefficient of performance (Dimensionless)",
+         T_h: "Temperature of hot reservoir (Temperature K)",
+         T_c: "Temperature of cold reservoir (Temperature K)",
+      },
       topic: "Thermodynamics",
    },
    {
@@ -1640,7 +2307,11 @@ const en = [
       description: "Calculates the speed of a periodic wave based on its frequency and wavelength.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         v: "Wave speed (Speed m/s)",
+         f: "Frequency (Frequency Hz)",
+         λ: "Wavelength (Length m)",
+      },
       topic: "Waves And Optics",
    },
    {
@@ -1651,7 +2322,11 @@ const en = [
       description: "Calculates the intensity of a wave (power per unit area).",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         I: "Intensity (Intensity W/m²)",
+         P: "Power (Power W)",
+         A: "Area (Area m²)",
+      },
       topic: "Waves And Optics",
    },
    {
@@ -1662,7 +2337,11 @@ const en = [
       description: "Calculates the intensity level (sound intensity level) relative to a reference intensity.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         β: "Intensity level (Intensity Level dB)",
+         I: "Intensity (Intensity W/m²)",
+         I0: "Reference intensity (Intensity W/m²)",
+      },
       topic: "Waves And Optics",
    },
    {
@@ -1673,7 +2352,11 @@ const en = [
       description: "Calculates the sound pressure level relative to a reference pressure change.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         L_p: "Sound pressure level (Pressure Level dB)",
+         P_rms: "RMS pressure fluctuation (Pressure Pa)",
+         P_ref: "Reference pressure (Pressure Pa)",
+      },
       topic: "Waves And Optics",
    },
    {
@@ -1685,7 +2368,13 @@ const en = [
          "Calculates the velocity factor portion of the Doppler effect equation (f' = f * factor). Positive velocities for observer moving towards source, source moving towards observer.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         f_obs: "Observed frequency (Frequency Hz)",
+         f_source: "Source frequency (Frequency Hz)",
+         v_wave: "Wave speed (Speed m/s)",
+         v_observer: "Observer velocity relative to medium (Speed m/s)",
+         v_source: "Source velocity relative to medium (Speed m/s)",
+      },
       topic: "Waves And Optics",
    },
    {
@@ -1697,7 +2386,12 @@ const en = [
          "Calculates the angle of the Mach cone formed by an object moving faster than the speed of sound. Returns angle in radians.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         μ: "Mach angle (Angle rad)",
+         M: "Mach number (Dimensionless)",
+         c: "Speed of sound (Speed m/s)",
+         v: "Object speed (Speed m/s)",
+      },
       topic: "Waves And Optics",
    },
    {
@@ -1708,7 +2402,12 @@ const en = [
       description: "Calculates work done based on force, displacement, and the angle between them.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         W: "Work done (Energy J)",
+         F: "Force (Force N)",
+         d: "Displacement magnitude (Length m)",
+         θ: "Angle between force and displacement (Angle rad)",
+      },
       topic: "Work And Energy",
    },
    {
@@ -1719,7 +2418,11 @@ const en = [
       description: "Calculates kinetic energy based on mass and velocity.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         KE: "Kinetic energy (Energy J)",
+         m: "Mass (Mass kg)",
+         v: "Velocity (Speed m/s)",
+      },
       topic: "Work And Energy",
    },
    {
@@ -1730,7 +2433,11 @@ const en = [
       description: "Calculates kinetic energy based on momentum and mass.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         KE: "Kinetic energy (Energy J)",
+         p: "Momentum (Momentum kg·m/s)",
+         m: "Mass (Mass kg)",
+      },
       topic: "Work And Energy",
    },
    {
@@ -1741,7 +2448,12 @@ const en = [
       description: "Calculates the change in gravitational potential energy.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         U_g: "Gravitational potential energy (Energy J)",
+         m: "Mass (Mass kg)",
+         g: "Acceleration due to gravity (Acceleration m/s²)",
+         h: "Height (Length m)",
+      },
       topic: "Work And Energy",
    },
    {
@@ -1752,7 +2464,11 @@ const en = [
       description: "Calculates the efficiency of a process or machine.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         Efficiency: "Efficiency (Dimensionless)",
+         Output: "Useful output energy or power (Energy J or Power W)",
+         Input: "Total input energy or power (Energy J or Power W)",
+      },
       topic: "Work And Energy",
    },
    {
@@ -1763,7 +2479,11 @@ const en = [
       description: "Calculates average power based on change in work and time.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         P: "Power (Power W)",
+         ΔW: "Change in work (Energy J)",
+         Δt: "Time interval (Time s)",
+      },
       topic: "Work And Energy",
    },
    {
@@ -1774,7 +2494,12 @@ const en = [
       description: "Calculates instantaneous power based on force, velocity, and the angle between them.",
       language_code: "en",
       subject: "Physics",
-      variables: {},
+      variables: {
+         P: "Power (Power W)",
+         F: "Force magnitude (Force N)",
+         v: "Velocity magnitude (Speed m/s)",
+         θ: "Angle between force and velocity (Angle rad)",
+      },
       topic: "Work And Energy",
    },
 ];

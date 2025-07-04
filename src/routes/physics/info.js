@@ -1,10 +1,26 @@
 const express = require("express");
 const infoRouter = express.Router();
 const { sendRes } = require("../../utils/httpUtils");
-const { httpCodes } = require("../../enums/enums.js");
+const { httpCodes } = require("../../enums/http.js");
 const dbUtils = require("../../utils/dbUtils.js");
-const es = require("../../es.js");
-const en = require("../../en.js");
+const es = require("../../info/es.js");
+const en = require("../../info/en.js");
+const fr = require("../../info/fr.js");
+const de = require("../../info/de.js");
+const it = require("../../info/it.js");
+const ja = require("../../info/ja.js");
+const pl = require("../../info/pl.js");
+const nl = require("../../info/nl.js");
+const zh = require("../../info/zh.js");
+const he = require("../../info/he.js");
+const ar = require("../../info/ar.js");
+const ru = require("../../info/ru.js");
+const pt = require("../../info/pt.js");
+const ko = require("../../info/ko.js");
+const hi = require("../../info/ht.js");
+const tr = require("../../info/tr.js");
+const ur = require("../../info/ur.js");
+const bn = require("../../info/bn.js");
 const functionNames = {
    "/physics/youngs-modulus": {
       name: "Young's Modulus",
@@ -334,7 +350,7 @@ const functionNames = {
       name: "Equation Info (Specific)",
       equation: "N/A (Retrieves info, not calculates)",
    },
-   "/info/list-endpoints": {
+   "/info/equation-summaries": {
       name: "List Endpoints (API Reference)",
       equation: "N/A (Lists endpoints)",
    },
@@ -631,6 +647,48 @@ function toProperCase(str) {
    return str.replace(/\w\S*/g, (text) => text.charAt(0).toUpperCase() + text.substring(1).toLowerCase());
 }
 
+function getFile(language_code) {
+   switch (language_code) {
+      case "en":
+         return en;
+      case "es":
+         return es;
+      case "fr":
+         return fr;
+      case "de":
+         return de;
+      case "it":
+         return it;
+      case "ja":
+         return ja;
+      case "pl":
+         return pl;
+      case "nl":
+         return nl;
+      case "zh":
+         return zh;
+      case "he":
+         return he;
+      case "ar":
+         return ar;
+      case "ru":
+         return ru;
+      case "pt":
+         return pt;
+      case "ko":
+         return ko;
+      case "tr":
+         return tr;
+      case "ur":
+         return ur;
+      case "hi":
+         return hi;
+      case "bn":
+         return bn;
+      default:
+         return [];
+   }
+}
 async function extractSwaggerData(swaggerObj) {
    try {
       // Input validation
@@ -671,7 +729,7 @@ async function extractSwaggerData(swaggerObj) {
             description: itemData.description || "", // description
             language_code: itemData.language_code || "en", // Default to English if not provided
             subject: toProperCase(subject), // Convert subject to proper case
-            variables: {},
+            variables: itemData.variables || {}, // variables
             topic: toProperCase(topic), // topic
          };
          // Assign the array to the key (equation_id)
@@ -765,11 +823,105 @@ function getByProperty(arr, propName, propValue) {
       return false; // Skip objects that are null/not objects or don't have the property
    });
 }
+
+/**
+ * @swagger
+ * /info/equation-summaries/{language_code}:
+ *   get:
+ *     summary: Get summary information about all the equations in the API.
+ *     description: Retrieves summary information on all endpoints in the API.
+ *     tags:
+ *       - API Information
+ *     parameters:
+ *       - in: path
+ *         name: language_code
+ *         schema:
+ *           type: string
+ *           # === Add the enum here to specify allowed values ===
+ *           enum:
+ *             - en
+ *             - es
+ *             - fr
+ *             - de
+ *             - it
+ *             - ja
+ *             - pl
+ *             - nl
+ *             - zh
+ *             - he
+ *             - ar
+ *             - ru
+ *             - pt
+ *             - ko
+ *             - tr
+ *             - ur
+ *             - hi
+ *             - bn
+ *           # ================================================
+ *         required: false
+ *         description: The language code for the equation summary. Select from the supported list.
+ *     responses:
+ *       200:
+ *         description: Successful response with array of equation summaries.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 subject:
+ *                   type: string
+ *                   description: The subject the equation belongs to.
+ *                 equation_id:
+ *                   type: string
+ *                   description: The ID of the equation.
+ *                 language_code:
+ *                   type: string
+ *                   description: The language code of the returned details (Note - Code uses 'lang' query param or defaults 'en').
+ *               # Example of a successful response body (assuming the internal 'body' object structure)
+ *               example:
+ *                 subject: Physics
+ *                 equation_id: centripetal-acceleration
+ *                 language_code: en # Or 'es', 'fr' etc. based on request/logic
+ *       400:
+ *         description: Bad Request - Equation ID is missing or invalid.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   description: Description of the error.
+ *               example:
+ *                 error: Equation ID is required.
+ *       # Add other potential responses like 404 Not Found if you implement that logic
+ */
+infoRouter.get("/equation-summaries/:language_code", async (req, res) => {
+   try {
+      const propsToRemove = ["description", "variables", "topic", "language_code"]; // Properties to remove from the response
+      let language_code = req.params.language_code || "en"; // Default to English if not provided
+
+      //came from swagger unset
+      if (language_code === "{language_code}") {
+         language_code = "en"; // Default to English if not provided
+      }
+      const langFile = getFile(language_code); // Get the language file based on the language code
+      if (!langFile) {
+         return sendRes(res, httpCodes.NotFound, "Unknown or unsupported language_code.", {}); // Send the processed data as response
+      }
+
+      const result = getReducedArray(langFile, propsToRemove); // Get the function names and equations
+      return sendRes(res, httpCodes.OK, "", result); // Return the function names directly if language is English
+   } catch (error) {
+      console.error("Error fetching Swagger data:", error);
+      throw new Error(`HTTP error! Status: ${error.message}`);
+   }
+});
 /**
  * @swagger
  * /info/{subject}/{equation_id}/{language_code}:
  *   get:
- *     summary: Get equation information by ID and language
+ *     summary: Get detailed equation information by subject, id, and language code.
  *     description: Retrieves details for a specific equation based on its unique ID and the desired language.
  *                  Note - The language is extracted from the 'language_code' path parameter. The internal logic shown
  *                  in the code snippet also looks at a 'lang' query parameter, but this Swagger definition
@@ -814,6 +966,8 @@ function getByProperty(arr, propName, propValue) {
  *             - ko
  *             - tr
  *             - ur
+ *             - hi
+ *             - bn
  *           # ================================================
  *         required: false
  *         description: The language code for the equation details. Select from the supported list.
@@ -868,13 +1022,14 @@ infoRouter.get("/:subject/:equation_id/:language_code", async (req, res) => {
       return sendRes(res, 400, { error: "Subject is required." });
    }
 
+   const langFile = getFile(language_code); // Get the language file based on the language code
+   if (!langFile) {
+      return sendRes(res, httpCodes.NotFound, "Unknown or unsupported language_code.", {}); // Send the processed data as response
+   }
    let info = {};
-   if (language_code == "en") {
-      info = getByProperty(en, "equation_id", equation_id); // Get the function by equation_id
-   }
-   if (language_code == "es") {
-      info = getByProperty(es, "equation_id", equation_id); // Get the function by equation_id
-   }
+
+   info = getByProperty(langFile, "equation_id", equation_id); // Get the function by equation_id
+
    if (Object.keys(info).length === 0) {
       return sendRes(res, httpCodes.NotFound, `Unable to find equation_id of ${equation_id}.`, {});
    }
@@ -903,13 +1058,27 @@ infoRouter.get("/:subject/:equation_id/:language_code", async (req, res) => {
 
 /**
  * @swagger
- * /info/list-endpoints/{language_code}:
+ * /info/find-equations/{subject}/{search_term}/{language_code}:
  *   get:
- *     summary: Get all equation endpoints in the API.
- *     description: Retrieves summary information on all endpoints in the API.
+ *     summary: Get summary information about all the equations in the API that contain a specific term.
+ *     description: Retrieves summary information on endpoints in the API that contain a specific term.
  *     tags:
  *       - API Information
  *     parameters:
+ *       - in: path
+ *         name: subject
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: The unique identifier of the subject of the equation (e.g., 'Physics').
+ *         example: Physics
+ *       - in: path
+ *         name: search_term
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: The term to search for in the equation names or descriptions.
+ *         example: "acceleration"
  *       - in: path
  *         name: language_code
  *         schema:
@@ -932,6 +1101,8 @@ infoRouter.get("/:subject/:equation_id/:language_code", async (req, res) => {
  *             - ko
  *             - tr
  *             - ur
+ *             - hi
+ *             - bn
  *           # ================================================
  *         required: false
  *         description: The language code for the equation summary. Select from the supported list.
@@ -971,27 +1142,23 @@ infoRouter.get("/:subject/:equation_id/:language_code", async (req, res) => {
  *                 error: Equation ID is required.
  *       # Add other potential responses like 404 Not Found if you implement that logic
  */
-infoRouter.get("/list-endpoints/:language_code", async (req, res) => {
-   try {
-      const propsToRemove = ["description", "variables", "topic", "language_code"]; // Properties to remove from the response
-      let language_code = req.params.language_code || "en"; // Default to English if not provided
+infoRouter.get("/find-equations/:subject/:search_term/:language_code", async (req, res) => {
+   const subject = req.params.subject; // Default to Physics if not provided
+   const search_term = req.params.search_term; // Default to Physics if not provided
+   let language_code = req.params.language_code || "en"; // Default to English if not provided
+   const propsToRemove = ["description", "variables", "topic", "language_code"]; // Properties to remove from the response
 
-      //came from swagger unset
-      if (language_code === "{language_code}") {
-         language_code = "en"; // Default to English if not provided
-      }
-      if (language_code === "en") {
-         const result = getReducedArray(en, propsToRemove); // Get the function names and equations
-         return sendRes(res, httpCodes.OK, "", result); // Return the function names directly if language is English
-      }
-      if (language_code === "es") {
-         const result = getReducedArray(es, propsToRemove); // Get the function names and equations
-         return sendRes(res, httpCodes.OK, "", result); // Return the function names directly if language is English
-      }
-      return sendRes(res, httpCodes.NotFound, "Unknown or unsupported language_code.", {}); // Send the processed data as response
-   } catch (error) {
-      console.error("Error fetching Swagger data:", error);
-      throw new Error(`HTTP error! Status: ${error.message}`);
+   //came from swagger unset
+   if (language_code === "{language_code}") {
+      language_code = "en"; // Default to English if not provided
    }
+   const langFile = getFile(language_code); // Get the language file based on the language code
+   if (!langFile) {
+      return sendRes(res, httpCodes.NotFound, "Unknown or unsupported language_code.", {}); // Send the processed data as response
+   }
+   let result = langFile.filter((item) => item.name.toLowerCase().includes(search_term.toLowerCase()));
+   result = getReducedArray(result, propsToRemove); // Get the function names and equations
+   return sendRes(res, httpCodes.OK, "", result); // Return the function names directly if language is English
 });
+
 module.exports = infoRouter;

@@ -12,7 +12,7 @@ const {validateNumber, formatNumber } = require("../../utils/calcUtils"); // Adj
  */
 const calculateCentripetalAcceleration = ({ v, r  , digits = 4}) => {
    validateNumber(v, "v");
-   validateNumber(r, "r");
+   validateNumber(r, "r", { checkZero: true });
    if (r === 0) {
       throw new Error("Radius (r) cannot be zero.");
    }

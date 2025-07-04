@@ -14,7 +14,7 @@ const solidMechanicsRouter = require("./routes/physics/solid-mechanics.js");
 const thermalThermodynamicsRouter = require("./routes/physics/thermal-thermodynamics.js");
 // physics routes
 const infoRouter = require("./routes/physics/info.js");
-const statsRouter = require("./routes/stats/stats.js");
+//const statsRouter = require("./routes/stats/stats.js");
 const circularMotionRouter = require("./routes/physics/circular-motion.js");
 const electromagnetismRouter = require("./routes/physics/electromagnetism.js");
 const fluidsThermodynamicsRouter = require("./routes/physics/fluids-thermodynamics.js");
@@ -65,7 +65,7 @@ app.use("/api/v1/info", infoRouter); // Mount info router
 
 // Mount Physics Routes
 
-app.use("/api/v1/stats", statsRouter); // Mount stats router
+//app.use("/api/v1/stats", statsRouter); // Mount stats router
 app.use("/api/v1/physics", solidMechanicsRouter);
 app.use("/api/v1/physics", thermalThermodynamicsRouter);
 app.use("/api/v1/physics", mechanicsRouter);
