@@ -10,7 +10,6 @@ backend:
           type: httpServer
     language:
         name: js
-        runtime: nodejs20.x
         packageManager: npm
     path: ./src/
     scripts:
