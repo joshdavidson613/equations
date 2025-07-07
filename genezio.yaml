@@ -3,7 +3,7 @@ region: us-east-1
 yamlVersion: 2
 backend:
     functions:
-        - entry: app.js
+        - entry: src/app.js  # Update this path
           handler: handler
           name: express
           path: .
@@ -11,7 +11,7 @@ backend:
     language:
         name: js
         packageManager: npm
-    path: ./src/
+    path: ./
     scripts:
         deploy:
             - npm install --production=false
