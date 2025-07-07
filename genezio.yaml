@@ -1,19 +1,21 @@
+name: equations
+region: us-east-1
+yamlVersion: 2
 backend:
     functions:
         - entry: app.js
           handler: handler
           name: express
-          path: .
+          path: ./
           type: httpServer
     language:
         name: js
         runtime: nodejs20.x
+        packageManager: npm
     path: ./src/
     scripts:
         deploy:
             - npm install --production=false
         local:
             - npm install
-name: equations
-region: us-east-1
-yamlVersion: 2
+
