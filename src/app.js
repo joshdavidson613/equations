@@ -35,7 +35,7 @@ const swaggerConfig = require("../swagger.config.js");
 dotenv.config(); // Load environment variables from .env file
 
 const app = express();
-const port = process.env.PORT || 3000;
+
 
 // Middleware
 app.use(bodyParser.json()); // Parse JSON request bodies
@@ -99,10 +99,18 @@ app.use((req, res, next) => {
       error: "Can't find what you are looking for.",
    }); // Send a generic error response
 });
-// Start the server
+
+const host = process.env.HOST || "localhost";
+const port = process.env.PORT || 3000;
+
+console.log("Node_Env:", process.env.NODE_ENV);
+
 app.listen(port, () => {
-   console.log(`Physics Equation API listening at http://localhost:${port}`);
-   console.log(`API Docs available at http://localhost:${port}/api-docs`);
+  const apiBase = `http://${host}:${port}/api/v1`;
+  const docsUrl = `http://${host}:${port}/api-docs`;
+
+  console.log(`🚀 Physics Equation API is running at: ${apiBase}`);
+  console.log(`📚 Swagger Docs available at: ${docsUrl}`);
 });
 
 module.exports = app; // Export for testing if needed

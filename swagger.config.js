@@ -3,6 +3,7 @@
  * @description Configuration for swagger-jsdoc to generate OpenAPI spec.
  */
 
+const isDevelopment = process.env.NODE_ENV === "development";
 const options = {
    definition: {
       openapi: "3.1.0",
@@ -20,7 +21,9 @@ const options = {
       ],
       servers: [
          {
-            url: "http://localhost:3000/api/v1", // Adjust if your app runs on a different port or host
+            url: isDevelopment
+               ? "http://localhost:3000/api/v1"
+               : "https://d709b619-af57-4d79-8978-89d2776b900e.us-east-1.cloud.genez.io/api/v1",
             description: "Math & Science Equation Endpoints",
          },
       ],
