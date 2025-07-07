@@ -835,6 +835,7 @@ function getByProperty(arr, propName, propValue) {
  *     parameters:
  *       - in: path
  *         name: language_code
+ *         default: en
  *         schema:
  *           type: string
  *           # === Add the enum here to specify allowed values ===
@@ -948,6 +949,7 @@ infoRouter.get("/equation-summaries/:language_code", async (req, res) => {
  *         name: language_code
  *         schema:
  *           type: string
+ *           default: en
  *           # === Add the enum here to specify allowed values ===
  *           enum:
  *             - en
@@ -1083,6 +1085,7 @@ infoRouter.get("/:subject/:equation_id/:language_code", async (req, res) => {
  *         name: language_code
  *         schema:
  *           type: string
+ *           default: en
  *           # === Add the enum here to specify allowed values ===
  *           enum:
  *             - en

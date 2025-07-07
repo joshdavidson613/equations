@@ -28,8 +28,8 @@ const circularMotionRouter = express.Router();
  *                 example: 5
  *               digits:
  *                type: integer
- *                description: Number of decimal places to round the result to (optional, default is 10)
- *                default: 10
+ *                description: Number of decimal places to round the result to (optional, default is 4)
+ *                default: 4
  *                example: 2
  *             required:
  *               - v
@@ -91,8 +91,8 @@ circularMotionRouter.post(
  *                 example: 5
  *               digits:
  *                type: integer
- *                description: Number of decimal places to round the result to (optional, default is 10)
- *                default: 10
+ *                description: Number of decimal places to round the result to (optional, default is 4)
+ *                default: 4
  *                example: 2
  *             required:
  *               - omega
