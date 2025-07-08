@@ -8,6 +8,7 @@ const bodyParser = require("body-parser");
 const swaggerJSDoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
 const dotenv = require("dotenv");
+const {checkAuth} = require("./middleware/auth.js"); // Import the authentication middleware
 const cors = require("cors");
 const {sendRes} = require("./utils/httpUtils.js"); // Import the sendRes function for sending responses
 const {httpCodes} = require("./enums/http.js"); // Import HTTP status codes from enums
@@ -27,7 +28,6 @@ const oscillationsWavesRouter = require("./routes/physics/oscillations-waves.js"
 const opticsRouter = require("./routes/physics/optics.js");
 const relativityQuantumRouter = require("./routes/physics/relativity-quantum.js");
 const rotationalMotionRouter = require("./routes/physics/rotational-motion.js");
-
 const wavesOpticsRouter = require("./routes/physics/waves-optics.js");
 const workEnergyRouter = require("./routes/physics/work-energy.js");
 
@@ -37,6 +37,7 @@ dotenv.config(); // Load environment variables from .env file
 
 const app = express();
 
+app.use(checkAuth); // Apply authentication middleware globally
 
 // Middleware
 app.use(bodyParser.json()); // Parse JSON request bodies
