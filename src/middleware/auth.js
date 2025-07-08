@@ -2,7 +2,13 @@ const dotenv = require("dotenv");
 
 function checkAuth(req, res, next) {
    const referer = req.headers["referer"];
-   const origin = req.headers["origin"];
+   if (referer && referer.includes("localhost")) {
+      return next(); // Allow requests from localhost without authentication
+   }
+   if(referer && referer.includes("https://d709b619-af57-4d79-8978-89d2776b900e.us-east-1.cloud.genez.io")){
+        return next(); // Allow requests from the Genez.io domain without authentication
+   }
+   
    const privateSecret = process.env.VITE_RAPIDAPI_PROXY_SECRET;
    const proxySecret = req.headers["X-RapidAPI-Proxy-Secret"] || req.headers["x-rapidapi-proxy-secret"];
 

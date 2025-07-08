@@ -14,6 +14,7 @@ const {sendRes} = require("./utils/httpUtils.js"); // Import the sendRes functio
 const {httpCodes} = require("./enums/http.js"); // Import HTTP status codes from enums
 const solidMechanicsRouter = require("./routes/physics/solid-mechanics.js");
 const thermalThermodynamicsRouter = require("./routes/physics/thermal-thermodynamics.js");
+
 // physics routes
 const infoRouter = require("./routes/physics/info.js");
 //const statsRouter = require("./routes/stats/stats.js");
