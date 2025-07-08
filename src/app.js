@@ -9,7 +9,8 @@ const swaggerJSDoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
 const dotenv = require("dotenv");
 const cors = require("cors");
-
+const {sendRes} = require("./utils/httpUtils.js"); // Import the sendRes function for sending responses
+const {httpCodes} = require("./enums/http.js"); // Import HTTP status codes from enums
 const solidMechanicsRouter = require("./routes/physics/solid-mechanics.js");
 const thermalThermodynamicsRouter = require("./routes/physics/thermal-thermodynamics.js");
 // physics routes
@@ -82,6 +83,11 @@ app.use("/api/v1/physics", electromagnetismRouter);
 app.use("/api/v1/physics", relativityQuantumRouter);
 app.use("/api/v1/physics", nuclearRouter);
 
+app.get("/api/v1/ping", (req, res) => {
+  res.status(200).json({
+      message:"Server is up as of " + new Date(),
+   }); // Send a generic error response
+});
 // Global error handling middleware (for errors not caught by route handlers)
 app.use((err, req, res, next) => {
    console.error(err.stack); // Log the error stack
@@ -90,6 +96,8 @@ app.use((err, req, res, next) => {
       error: "An unexpected error occurred.",
    }); // Send a generic error response
 });
+
+
 
 // Handle 404 errors - not found
 // should be last entry and is a global handler for all routes.
